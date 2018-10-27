@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/24 14:23:36 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/27 07:38:12 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/27 17:52:13 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_specifier	specifier[] =
 	// {"%", &print_percentage},
 	{'d', &print_d_i},
 	// {"D", &print_D},
-	// {"i", &print_d_i},
+	{'i', &print_d_i},
 	// {"o", &print_o},
 	// {"O", &print_O},
 	// {"u", &print_u},
@@ -48,7 +48,7 @@ static t_modifier	modifier[] =
 
 static t_character	character[] =
 {
-	{'1'},
+	{'#'},
 	{'2'},
 	{'3'},
 	{'4'},

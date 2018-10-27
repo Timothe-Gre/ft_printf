@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print.c                                         :+:      :+:    :+:   */
+/*   ft_control.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 06:14:17 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 07:39:27 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/27 19:27:05 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-int		ft_print(pf_flags flags, va_list ap)
+int		ft_control(pf_flags flags, va_list ap)
 {
+	void *element;
+
+	element = va_arg(ap, void*);
+	printf("%lu\n\n", sizeof(element));
+	printf("%d\n", (int)element);
+	printf("%d\n", ((int)element & 0x100));
 	// if (flags.check_flags && 0x10)
 	// 	check_combinaison_char(flags);
 	// if (flags.check_flags && 0x08)
@@ -24,6 +30,15 @@ int		ft_print(pf_flags flags, va_list ap)
 	// if (flags.check_flags && 0x02)
 	// 	check_combinaison_modifier(flags);
 	if (flags.check_flags && 0x01)
-		specifier[flags.index_m].fct(ap);
+		specifier[flags.index_s].fct(element);
+
+	//commentaire pour gheram la petite tete qui risque de tout oublier:
+	//chemin de printf dans l'ordre :
+	//	gestion des characters
+	//	gestion du specifier :
+	//		gestion du modifier eventuel
+	//		cast pour calcul de la taille d'element
+	//		gestion precision et width
+	//	affichage
 	return (0);
 }

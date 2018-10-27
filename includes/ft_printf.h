@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:46:19 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 07:37:08 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/27 17:53:14 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef	struct		s_elem
 typedef struct		s_specifier
 {
 	char			flag_s;
-	void			(*fct)(va_list);
+	void			(*fct)(void*);
 }					t_specifier;
 
 typedef struct		s_modifier
@@ -54,15 +54,15 @@ typedef struct		s_character
 }					t_character;
 
 int					ft_printf(const char *format, ...);
-void				print_d_i(va_list ap);
-int					ft_print(pf_flags flags, va_list ap);
+void				print_d_i(void *element);
+int					ft_control(pf_flags flags, va_list ap);
 
 int					ft_parse_flags(const char *format, va_list ap, size_t *ret);
-void				ft_check_characters(pf_flags *flags, char *str);
-void				ft_check_modifier(pf_flags *flags, char *str);
-void				ft_check_precision(pf_flags *flags, char *str);
+void				ft_check_characters(pf_flags *flags, char **str);
+void				ft_check_modifier(pf_flags *flags, char **str);
+void				ft_check_precision(pf_flags *flags, char **str);
 int					ft_check_specifier(pf_flags *flags, char *str);
-void				ft_check_width(pf_flags *flags, char *str);
+void				ft_check_width(pf_flags *flags, char **str);
 
 
 

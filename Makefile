@@ -6,7 +6,7 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/10/27 07:17:51 by ghtouman         ###   ########.fr        #
+#    Updated: 2018/10/27 16:53:59 by ghtouman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)ft_check_precision.c	\
 	  $(SRC_PATH)ft_check_modifier.c	\
 	  $(SRC_PATH)ft_check_specifier.c	\
-	  $(SRC_PATH)ft_print.c				\
+	  $(SRC_PATH)ft_control.c			\
 	  $(SRC_PATH)ft_print_int.c
 
 OBJ = $(SRC:c=o)

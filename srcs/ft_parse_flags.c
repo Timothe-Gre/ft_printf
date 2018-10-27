@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 19:13:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 07:37:26 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/27 17:56:58 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ int				ft_parse_flags(const char *format, va_list ap, size_t *ret)
 	pf_flags	flags;
 
 	tmp = (char *)format;
-	while (*tmp)
+	while (*tmp++)
 	{
 		if (*tmp == '%')
 		{
+			tmp++;
 			flags = (pf_flags){0, 0, 0, 0, 0, 0};
-			ft_check_characters(&flags, tmp);
-			ft_check_width(&flags, tmp);
-			ft_check_precision(&flags, tmp);
-			ft_check_modifier(&flags, tmp);
+			ft_check_characters(&flags, &tmp);
+			ft_check_width(&flags, &tmp);
+			ft_check_precision(&flags, &tmp);
+			ft_check_modifier(&flags, &tmp);
 			if (ft_check_specifier(&flags, tmp) >= 15)
 				return (0);
-			ft_print(flags, ap);
+			ft_control(flags, ap);
 		}
 		else
 		{
 			ft_putchar(*tmp);
 			(*ret)++;
 		}
-		tmp++;
 	}
 	return (*ret);
 }

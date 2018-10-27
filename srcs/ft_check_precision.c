@@ -6,23 +6,23 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 22:12:24 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 07:29:25 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/27 17:38:13 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_check_precision(pf_flags *flags, char *str)
+void	ft_check_precision(pf_flags *flags, char **str)
 {
-	if (*str != '.')
+
+	if (**str != '.')
 		return;
-	str++;
-	flags->precision = 0;
-	while (*str && *str >= '0' && *str <= '9')
+	(*str)++;
+	while (**str && **str >= '0' && **str <= '9')
 	{
-		flags->precision = flags->precision * 10 + (*str - '0');
-		str++;
+		flags->precision = flags->precision * 10 + (**str - '0');
+		(*str)++;
 	}
 	flags->check_flags += 0x04;
-	str++;
+	(*str)++;
 }
