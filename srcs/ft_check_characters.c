@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_characters.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 22:43:13 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 01:46:48 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/27 07:26:21 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,20 @@ int		index_byte(int nb)
 		return (0);
 }
 
-void	ft_check_characters(pf_flags **pf_list, char *str)
+void	ft_check_characters(pf_flags *flags, char *str)
 {
 	int		i;
 
 	i = 0;
-	(*pf_list)->check_char = 0;
+	flags->check_char = 0;
 	while (character[i].flag_c)
 	{
 		if (character[i].flag_c == *str)
-		{	
-			(*pf_list)->check_char |= index_byte(i);
+		{
+			flags->check_char |= index_byte(i);
 			i = 0;
 			str++;
-			(*pf_list)->check_flags |= 0x10;
-			printf("%d\n", (*pf_list)->check_flags);
+			flags->check_flags |= 0x10;
 		}
 		i++;
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:39:51 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 06:19:09 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/27 07:23:52 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int			ft_printf(const char *format, ...)
 	va_start(ap, format);
 	if (!(ft_parse_flags(format, ap, &ret)))
 		return (0);
-	va_end(ap);	
+	va_end(ap);
 	return (ret);
 }

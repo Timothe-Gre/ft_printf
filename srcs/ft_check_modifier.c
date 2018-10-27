@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_specifier.c                               :+:      :+:    :+:   */
+/*   ft_check_modifier.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 19:24:49 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 01:49:13 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/27 07:27:34 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-void	ft_check_modifier(pf_flags **pf_list, char *str)
+void	ft_check_modifier(pf_flags *flags, char *str)
 {
-	(*pf_list)->index_m = 0;
-	while (modifier[(*pf_list)->index_m].flag_m &&
-			*str != modifier[(*pf_list)->index_m].flag_m)
-		(*pf_list)->index_m++;
-	if ((*pf_list)->index_m < 6)
-		(*pf_list)->check_flags += 0x02;
+	flags->index_m = 0;
+	while (modifier[flags->index_m].flag_m &&
+			*str != modifier[flags->index_m].flag_m)
+		flags->index_m++;
+	if (flags->index_m < 6)
+		flags->check_flags += 0x02;
 }

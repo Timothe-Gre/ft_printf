@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 19:13:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 06:20:17 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/27 07:37:26 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int				ft_parse_flags(const char *format, va_list ap, size_t *ret)
 	{
 		if (*tmp == '%')
 		{
-			flags = (&(pf_flags){0, 0, 0, 0, 0, 0});
+			flags = (pf_flags){0, 0, 0, 0, 0, 0};
 			ft_check_characters(&flags, tmp);
 			ft_check_width(&flags, tmp);
 			ft_check_precision(&flags, tmp);
@@ -38,5 +38,5 @@ int				ft_parse_flags(const char *format, va_list ap, size_t *ret)
 		}
 		tmp++;
 	}
-	return (ret);
+	return (*ret);
 }

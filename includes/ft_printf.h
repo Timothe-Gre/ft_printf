@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:46:19 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 06:16:34 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/27 07:37:08 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef	struct		s_elem
 typedef struct		s_specifier
 {
 	char			flag_s;
-	//	void			(*fct)(char);
+	void			(*fct)(va_list);
 }					t_specifier;
 
 typedef struct		s_modifier
@@ -53,12 +53,24 @@ typedef struct		s_character
 	//	void			(*fct)(char);
 }					t_character;
 
-int					ft_printf(const char *format, ...);					
-int					ft_parse_flags(pf_flags **pf_list, const char *format);
-int					ft_check_specifier(pf_flags **pf_list, char *str);
-void				ft_check_modifier(pf_flags **pf_list, char *str);
-void				ft_check_precision(pf_flags **pf_list, char *str);
-void				ft_check_width(pf_flags **pf_list, char *str);
-void				ft_check_characters(pf_flags **pf_list, char *str);
+int					ft_printf(const char *format, ...);
+void				print_d_i(va_list ap);
+int					ft_print(pf_flags flags, va_list ap);
+
+int					ft_parse_flags(const char *format, va_list ap, size_t *ret);
+void				ft_check_characters(pf_flags *flags, char *str);
+void				ft_check_modifier(pf_flags *flags, char *str);
+void				ft_check_precision(pf_flags *flags, char *str);
+int					ft_check_specifier(pf_flags *flags, char *str);
+void				ft_check_width(pf_flags *flags, char *str);
+
+
+
+
+
+
+
+
+
 
 # endif

@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_width.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 22:33:13 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 01:19:19 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/27 07:31:17 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_check_width(pf_flags **pf_list, char *str)
+void	ft_check_width(pf_flags *flags, char *str)
 {
-	(*pf_list)->width = 0;
+	flags->width = 0;
 	if (*str < '0' && *str > '9')
 		return ;
 	while(*str && *str >= '0' && *str <= '9')
 	{
-		(*pf_list)->width = (*pf_list)->width * 10 + (*str - '0');
+		flags->width = flags->width * 10 + (*str - '0');
 		str++;
 	}
-	(*pf_list)->check_flags += 0x08;
+	flags->check_flags += 0x08;
 	str++;
 }

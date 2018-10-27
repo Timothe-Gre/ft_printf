@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_specifier.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 19:24:49 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 01:48:58 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/27 07:30:41 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-int		ft_check_specifier(pf_flags **pf_list, char *str)
+int		ft_check_specifier(pf_flags *flags, char *str)
 {
-	(*pf_list)->index_s = 0;
-	while (specifier[(*pf_list)->index_s].flag_s && 
-			*str != specifier[(*pf_list)->index_s].flag_s)
-		(*pf_list)->index_s++;
-	if ((*pf_list)->index_s < 15)
-		(*pf_list)->check_flags = (*pf_list)->check_flags + 0x01;
-	return ((*pf_list)->index_s);
+	flags->index_s = 0;
+	while (specifier[flags->index_s].flag_s &&
+			*str != specifier[flags->index_s].flag_s)
+		flags->index_s++;
+	if (flags->index_s < 15)
+		flags->check_flags = flags->check_flags + 0x01;
+	return (flags->index_s);
 }

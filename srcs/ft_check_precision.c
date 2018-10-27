@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_precision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 22:12:24 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 01:18:55 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/27 07:29:25 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_check_precision(pf_flags **pf_list, char *str)
+void	ft_check_precision(pf_flags *flags, char *str)
 {
 	if (*str != '.')
 		return;
 	str++;
-	(*pf_list)->precision = 0;
+	flags->precision = 0;
 	while (*str && *str >= '0' && *str <= '9')
 	{
-		(*pf_list)->precision = (*pf_list)->precision * 10 + (*str - '0');
+		flags->precision = flags->precision * 10 + (*str - '0');
 		str++;
 	}
-	(*pf_list)->check_flags += 0x04;
+	flags->check_flags += 0x04;
 	str++;
 }
