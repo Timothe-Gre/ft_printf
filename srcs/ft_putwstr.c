@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_long.c                                    :+:      :+:    :+:   */
+/*   ft_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/27 18:20:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/29 17:05:01 by tigre            ###   ########.fr       */
+/*   Created: 2018/10/24 11:18:55 by tigre             #+#    #+#             */
+/*   Updated: 2018/10/29 18:23:10 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_p(void *element)
-{
-	ft_putstr("0x");
-	ft_putlnbr_base((unsigned long)element, 16, 0);
-}
+ void	ft_putwstr(wchar_t *str)
+ {
+ 	int i;
 
-void	print_U(void *element)
-{
-	ft_putlnbr_base((unsigned long)element, 10, 0);
-}
-
-void	print_O(void *element)
-{
-	ft_putlnbr_base((unsigned long)element, 8, 0);
+ 	i = -1;
+	if (str)
+	{
+ 		while (str[++i])
+		{
+			if (str[i] > 0x7f && str[i] <= 0xff && MB_CUR_MAX != 4)
+				ft_putchar(str[i]);
+			else
+				ft_putwchar(str[i]);
+		}
+ 	}
 }

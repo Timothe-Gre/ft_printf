@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:46:19 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/29 15:02:17 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/29 19:05:52 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct		s_specifier
 typedef struct		s_modifier
 {
 	char			flag_m;
-	//	void			(*fct)(char);
+	void			(*fct)(char);
 }					t_modifier;
 
 typedef struct		s_character
@@ -54,17 +54,26 @@ typedef struct		s_character
 }					t_character;
 
 int					ft_printf(const char *format, ...);
-void				print_d_i(void *element);
-void				print_o(void *element);
-void				print_O(void *element);
-void				print_x(void *element);
-void				print_X(void *element);
-void				print_u(void *element);
-void				print_U(void *element);
-void				print_pointer(void *element);
+void				print_d_i(void *element, pf_flags flags);
+void				print_o(void *element, pf_flags flags);
+void				print_O(void *element, pf_flags flags);
+void				print_x(void *element, pf_flags flags);
+void				print_X(void *element, pf_flags flags);
+void				print_u(void *element, pf_flags flags);
+void				print_U(void *element, pf_flags flags);
+void				print_D(void *element, pf_flags flags);
+void				print_p(void *element, pf_flags flags);
+void				print_c(void *element, pf_flags flags);
+void				print_C(void *element, pf_flags flags);
+void				print_s(void *element, pf_flags flags);
+void				print_S(void *element, pf_flags flags);
 int					ft_control(pf_flags flags, va_list ap);
 void				ft_putnbr_base(unsigned int n, unsigned int b, char maj);
 void				ft_putlnbr_base(unsigned long n, unsigned int b, char maj);
+void				ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj);
+void				ft_putlnbr(long int n);
+void				ft_putwchar(wchar_t element);
+void				ft_putwstr(wchar_t *str);
 
 size_t				ft_len_number(int nb, size_t len, char base);
 

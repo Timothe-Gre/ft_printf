@@ -6,16 +6,25 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:53 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/27 18:17:20 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/29 19:36:26 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_d_i(void *element)
+void	print_d_i(void *element, pf_flags flags)
 {
+	if (flags.check_flags && 0x10)
+		modifier[flags.index_m].fct(&element, 0);
 	ft_putnbr((int)element);
 }
+
+void	print_D(void *element, pf_flags flags)
+{
+	ft_putlnbr((long int)element);
+}
+
+
 // void	print_D(va_list ap, t_list *ma_list)
 // {
 // 	t_elem		element;
