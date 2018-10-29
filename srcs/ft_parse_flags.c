@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 19:13:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 17:56:58 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/29 13:03:02 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int				ft_parse_flags(const char *format, va_list ap, size_t *ret)
 	pf_flags	flags;
 
 	tmp = (char *)format;
-	while (*tmp++)
+	while (*tmp)
 	{
 		if (*tmp == '%')
 		{
@@ -37,6 +37,7 @@ int				ft_parse_flags(const char *format, va_list ap, size_t *ret)
 			ft_putchar(*tmp);
 			(*ret)++;
 		}
+		tmp++;
 	}
 	return (*ret);
 }

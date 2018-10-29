@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/24 14:23:36 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/27 17:52:13 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/29 15:01:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,17 @@ static t_specifier	specifier[] =
 	{'d', &print_d_i},
 	// {"D", &print_D},
 	{'i', &print_d_i},
-	// {"o", &print_o},
-	// {"O", &print_O},
-	// {"u", &print_u},
-	// {"U", &print_U},
-	// {"x", &print_x},
-	// {"X", &print_X},
+	{'o', &print_o},
+	{'O', &print_O},
+	{'u', &print_u},
+	{'U', &print_U},
+	{'x', &print_x},
+	{'X', &print_X},
 	// {"c", &print_c},
 	// {"C", &print_C},
 	// {"s", &print_s},
 	// {"S", &print_S},
-	// {"p", &print_pointer},
-	// {'d'},
+	{'p', &print_pointer},
 	{'\0', NULL}
 };
 

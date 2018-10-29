@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:46:19 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 17:53:14 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/29 15:02:17 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,18 @@ typedef struct		s_character
 
 int					ft_printf(const char *format, ...);
 void				print_d_i(void *element);
+void				print_o(void *element);
+void				print_O(void *element);
+void				print_x(void *element);
+void				print_X(void *element);
+void				print_u(void *element);
+void				print_U(void *element);
+void				print_pointer(void *element);
 int					ft_control(pf_flags flags, va_list ap);
+void				ft_putnbr_base(unsigned int n, unsigned int b, char maj);
+void				ft_putlnbr_base(unsigned long n, unsigned int b, char maj);
+
+size_t				ft_len_number(int nb, size_t len, char base);
 
 int					ft_parse_flags(const char *format, va_list ap, size_t *ret);
 void				ft_check_characters(pf_flags *flags, char **str);

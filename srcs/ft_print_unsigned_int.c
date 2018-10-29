@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_unsigned_int.c                               :+:      :+:    :+:   */
+/*   ft_print_unsigned_int.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:02 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/27 17:44:18 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/29 14:52:24 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_o(va_list ap, t_list *ma_list)
+void	print_o(void *element)
 {
-	t_elem		element;
-
-	element = (t_elem){0, 0, NULL};
-	if (check_modifie(ma_list, ap, &element, "u_int"))
-	{
-		element.print = ft_itoa_base_maj(element.u_elem, 8, "0123456789abcdef");
-		check_precision(ma_list, element.print);
-		ft_putstr(element.print);
-		return ;
-	}
-	element.u_elem = va_arg(ap, unsigned int);
-	check_precision(ma_list, element.print);
-	ft_putstr(ft_itoa_base_maj(element.u_elem, 8, "0123456789abcdef"));
+	ft_putnbr_base((unsigned int)element, 8, 0);
 }
+
+void	print_x(void *element)
+{
+	ft_putnbr_base((unsigned int)element, 16, 0);
+}
+
+void	print_X(void *element)
+{
+	ft_putnbr_base((unsigned int)element, 16, 1);
+}
+
+void	print_u(void *element)
+{
+	ft_putnbr_base((unsigned int)element, 10, 0);
+}
+
+// void	print_o(void *element)
+// {
+// 	ft_putnbr_base((unsigned int)element, 8, 0);
+// }
 
 // void 	print_u(va_list ap, t_list *ma_list)
 // {
@@ -70,4 +78,4 @@ void	print_o(va_list ap, t_list *ma_list)
 // 	}
 // 	element.u_elem = va_arg(ap, unsigned int);
 // 	ft_putstr(ft_itoa_base_maj(element.u_elem, 16, "0123456789ABCDEF"));
-}
+// }

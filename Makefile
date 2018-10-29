@@ -6,7 +6,7 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/10/27 16:53:59 by ghtouman         ###   ########.fr        #
+#    Updated: 2018/10/29 14:57:45 by ghtouman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,11 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)ft_check_modifier.c	\
 	  $(SRC_PATH)ft_check_specifier.c	\
 	  $(SRC_PATH)ft_control.c			\
-	  $(SRC_PATH)ft_print_int.c
+	  $(SRC_PATH)ft_print_int.c			\
+	  $(SRC_PATH)ft_print_long.c		\
+	  $(SRC_PATH)ft_print_unsigned_int.c\
+	  $(SRC_PATH)ft_putnbr_base.c		\
+	  $(SRC_PATH)ft_len_number.c
 
 OBJ = $(SRC:c=o)
 
@@ -35,7 +39,7 @@ $(NAME): $(OBJ) $(LIB)
 	gcc $(OBJ) $(LIB) -g -I $(LIB_PATH) -o $(NAME) -fsanitize=address
 
 %.o: %.c
-	gcc $(FLAG) -c -g $< -o $@ -I$(IDIR) -fsanitize=address
+	gcc -c -g $< -o $@ -I$(IDIR) -fsanitize=address
 
 $(OBJ) : $(IDIR)ft_printf.h
 
