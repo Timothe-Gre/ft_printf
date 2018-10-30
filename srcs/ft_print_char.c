@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/29 18:17:28 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/30 15:03:27 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_c(void *element)
+void	print_c(void *element, pf_flags flags)
 {
 	ft_putchar((char)element);
 }
 
-void	print_C(void *element)
+void	print_C(void *element, pf_flags flags)
 {
 	wchar_t gheram;
 	gheram = (wchar_t)element;
@@ -30,12 +30,12 @@ void	print_C(void *element)
 		ft_putwchar(gheram);
 }
 
-void	print_s(void *element)
+void	print_s(void *element, pf_flags flags)
 {
 	ft_putstr((char *)element);
 }
 
-void	print_S(void *element)
+void	print_S(void *element, pf_flags flags)
 {
 	ft_putwstr((wchar_t*)element);
 }

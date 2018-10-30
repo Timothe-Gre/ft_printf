@@ -6,13 +6,14 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/24 14:23:36 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/29 19:47:34 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/30 16:19:48 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FLAG_H
 # define FT_FLAG_H
-/*
+
+
 static t_specifier	specifier[] =
 {
 	{'d', &print_d_i},
@@ -31,19 +32,18 @@ static t_specifier	specifier[] =
 	{'p', &print_p},
 	{'\0', NULL}
 };
-*/
+
 static t_modifier	modifier[] =
 {
-	{'h'},
-	{'l'},
-//	{"j", &modif_j},
-//	{"z", &modif_z},*/
-//	{'l'},
-	{'H'},
-	{'L'},
+	{'h', &modif_h},
+	{'l', &modif_l},
+	{'j', &modif_j},
+	{'z', &modif_z},
+	{'H', &modif_hh},
+	{'L', &modif_ll},
 	{'\0'}
 };
-/*
+
 static t_character	character[] =
 {
 	{'#'},
@@ -53,6 +53,4 @@ static t_character	character[] =
 	{'\0'}
 };
 
-
-*/
 #endif

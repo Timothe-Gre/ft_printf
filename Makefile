@@ -6,7 +6,7 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/10/29 17:50:04 by tigre            ###   ########.fr        #
+#    Updated: 2018/10/30 16:11:18 by ghtouman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)ft_print_int.c			\
 	  $(SRC_PATH)ft_print_long.c		\
 	  $(SRC_PATH)ft_print_unsigned_int.c\
+	  $(SRC_PATH)modif_h_hh.c			\
+	  $(SRC_PATH)modif_l_ll.c			\
+	  $(SRC_PATH)modif_j_z.c			\
 	  $(SRC_PATH)ft_putnbr_base.c		\
 	  $(SRC_PATH)ft_len_number.c		\
 	  $(SRC_PATH)ft_print_char.c		\

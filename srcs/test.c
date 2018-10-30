@@ -14,7 +14,6 @@ int		ft_check_specifier(pf_flags **pf_list, char *str)
 */
 int		main()
 {
-
 	printf("%c\n", s[0].flag_s);
 	return (0);
 }

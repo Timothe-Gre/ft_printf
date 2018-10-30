@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 06:14:17 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/29 14:44:38 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/30 16:00:14 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_control(pf_flags flags, va_list ap)
 	void *element;
 
 	element = va_arg(ap, void*);
-	
+
 	// if (flags.check_flags && 0x10)
 	// 	check_combinaison_char(flags);
 	// if (flags.check_flags && 0x08)
@@ -28,7 +28,7 @@ int		ft_control(pf_flags flags, va_list ap)
 	// if (flags.check_flags && 0x02)
 	// 	check_combinaison_modifier(flags);
 	if (flags.check_flags && 0x01)
-		specifier[flags.index_s].fct(element);
+		specifier[flags.index_s].fct_s(element, flags);
 
 	//commentaire pour gheram la petite tete qui risque de tout oublier:
 	//chemin de printf dans l'ordre :
