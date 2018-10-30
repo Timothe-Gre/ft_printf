@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 19:24:49 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/29 19:47:31 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/30 17:20:58 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	ft_check_modifier(pf_flags *flags, char **str)
 		flags->index_m++;
 	if (flags->index_m == 0 && *((*str) + 1) && *((*str) + 1) == 'h')
 	{
-		flags->index_m = 5;
+		flags->index_m = 4;
 		flags->check_flags += 0x02;
 		(*str) += 2;
 	}
 	else if (flags->index_m == 1 && *((*str) + 1) && *((*str) + 1) == 'l')
 	{
-		flags->index_m = 6;
+		flags->index_m = 5;
 		flags->check_flags += 0x02;
 		(*str) += 2;
 	}
