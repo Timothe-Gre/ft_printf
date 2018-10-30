@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 16:11:23 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/30 16:18:12 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/30 19:32:43 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		modif_j(void *element, pf_flags flags)
 	else if (flags.index_s == 8)
 		ft_putnbr_base((uintmax_t)element, 16, 1);
 	else
-		ft_putnbr((intmax_t)element);
+		ft_putlnbr((intmax_t)element);
 }
 
 void		modif_z(void *element, pf_flags flags)
@@ -37,5 +37,5 @@ void		modif_z(void *element, pf_flags flags)
 	else if (flags.index_s == 8)
 		ft_putnbr_base((ssize_t)element, 16, 1);
 	else
-		ft_putnbr((size_t)element);
+		ft_putlnbr((size_t)element);
 }
