@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:46:19 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/30 16:19:14 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 12:37:59 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void				ft_putnbr_base(unsigned int n, unsigned int b, char maj);
 void				ft_putlnbr_base(unsigned long n, unsigned int b, char maj);
 void				ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj);
 void				ft_putlnbr(long int n);
+void				ft_putnbr_no_minus(intmax_t n);
+
 void				ft_putwchar(wchar_t element);
 void				ft_putwstr(wchar_t *str);
 

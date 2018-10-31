@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_all.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:02 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/29 16:48:01 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/31 12:39:23 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,13 @@ void	ft_putlnbr(long int n)
 	if (n >= 10)
 		ft_putlnbr(n / 10);
 	ft_putchar(n % 10 + '0');
+}
+
+void	ft_putnbr_no_minus(intmax_t n)
+{
+	if (n < 0)
+		n = n * (-1);
+	if (n >= 10)
+		ft_putnbr_no_minus(n / 10);
+	ft_putchar((n  % 10) + '0');
 }

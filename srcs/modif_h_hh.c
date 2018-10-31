@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 14:02:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/31 12:09:22 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 12:41:59 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void ft_write_p_u(uintmax_t element, pf_flags flags, char base)
 {
-	// et ici les modification den la largeur 
+	// et ici les modification de la largeur
 	while (flags.precision > ft_len_number(element, 0, base))
 	{
 		ft_putchar('0');
@@ -24,6 +24,11 @@ void ft_write_p_u(uintmax_t element, pf_flags flags, char base)
 
 void ft_write_p(intmax_t element, pf_flags flags, char base)
 {
+	if (element < 0)
+	{
+		ft_putchar('-');
+		flags.precision++;
+	}
 	while (flags.precision > ft_len_number(element, 0, base))
 	{
 		ft_putchar('0');
@@ -56,7 +61,7 @@ void		modif_h(void *element, pf_flags flags)
 	else
 	{
 		ft_write_p((short int)element, flags, 10);
-		ft_putnbr((short int)element);
+		ft_putnbr_no_minus((short int)element);
 	}
 }
 
