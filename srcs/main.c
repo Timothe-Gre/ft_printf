@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 00:51:41 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 10:54:15 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 12:06:26 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ int		main(int ac, char **av)
 	(void)ac;
 	(void)av;
 
+	unsigned short test = 30560;
 
-	ft_printf("%.3d\n", 30);
+	ft_printf("%.30hx\n", test);
+	printf("%.30hx\n", test);
+
 	// setlocale(LC_CTYPE, "");
 	// wchar_t *star = L"初めまして。";
 	//	long	a = 123123;
