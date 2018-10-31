@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 19:13:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/29 18:24:04 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/31 10:43:53 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ int				ft_parse_flags(const char *format, va_list ap, size_t *ret)
 				ft_check_precision(&flags, &tmp);
 				ft_check_modifier(&flags, &tmp);
 				if ((ft_check_specifier(&flags, tmp) >= 14) && (flags.check_flags > 0))
+				{
+					printf("pk\n");
 					return (0);
+				}
 				if (flags.check_flags == 0)
 					ft_putchar(*tmp);
 				else

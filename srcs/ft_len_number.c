@@ -6,13 +6,13 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:02 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/29 12:54:40 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 10:40:47 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_len_number(int	nb, size_t len, char base)
+size_t	ft_len_number(int nb, size_t len, char base)
 {
 	if (nb < 0 && base == 10)
 	{

@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 00:51:41 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/30 17:39:50 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/31 10:54:15 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,134 +17,136 @@ int		main(int ac, char **av)
 	(void)ac;
 	(void)av;
 
+
+	ft_printf("%.3d\n", 30);
 	// setlocale(LC_CTYPE, "");
 	// wchar_t *star = L"初めまして。";
-//	long	a = 123123;
+	//	long	a = 123123;
+	//
+	// int	test0 = 123;
+	// int test1 = 32767;                               	 	//short
+	// int test2 = 65535;										//u short
+	// int test3 = 2147483647;									//int
+	// int test4 = 4294967295;									//u int
+	// int test5 = 9223372036854775807;						// long long
+	// int test6 = 18446744073709551615;						// u long long
+	//
+	// // printf("%maman %S\n", star);
+	// // ft_printf("%maman %S\n", star);
+	//
+	// //			LL
+	// printf("LL:\n");
+	// printf(" rdm : %llu  rdm + 1 : %llu\n", test0, test0 + 1);
+	// printf(" mau : %llu  mau + 1 : %llu\n", test1, test1 + 1);
+	// printf(" mau : %llu  mau + 1 : %llu\n", test2, test2 + 1);
+	// printf(" mau : %llu  mau + 1 : %llu\n", test3, test3 + 1);
+	// printf(" mau : %llu  mau + 1 : %llu\n", test4, test4 + 1);
+	// printf(" mau : %llu  mau + 1 : %llu\n", test5, test5 + 1);
+	// printf(" mau : %llu  mau + 1 : %llu\n", test6, test6 + 1);
+	// printf("\n");
+	// ft_printf(" rdm : %llu  rdm + 1 : %llu\n", test0, test0 + 1);
+	// ft_printf(" mau : %llu  mau + 1 : %llu\n", test1, test1 + 1);
+	// ft_printf(" mau : %llu  mau + 1 : %llu\n", test2, test2 + 1);
+	// ft_printf(" mau : %llu  mau + 1 : %llu\n", test3, test3 + 1);
+	// ft_printf(" mau : %llu  mau + 1 : %llu\n", test4, test4 + 1);
+	// ft_printf(" mau : %llu  mau + 1 : %llu\n", test5, test5 + 1);
+	// ft_printf(" mau : %llu  mau + 1 : %llu\n", test6, test6 + 1);
+	// printf("\n");
+	//
+	// //			L
+	// printf("L:\n");
+	// printf(" rdm : %lu  rdm + 1 : %lu\n", test0, test0 + 1);
+	// printf(" mau : %lu  mau + 1 : %lu\n", test1, test1 + 1);
+	// printf(" mau : %lu  mau + 1 : %lu\n", test2, test2 + 1);
+	// printf(" mau : %lu  mau + 1 : %lu\n", test3, test3 + 1);
+	// printf(" mau : %lu  mau + 1 : %lu\n", test4, test4 + 1);
+	// printf(" mau : %lu  mau + 1 : %lu\n", test5, test5 + 1);
+	// printf(" mau : %lu  mau + 1 : %lu\n", test6, test6 + 1);
+	// printf("\n");
+	// ft_printf(" rdm : %lu  rdm + 1 : %lu\n", test0, test0 + 1);
+	// ft_printf(" mau : %lu  mau + 1 : %lu\n", test1, test1 + 1);
+	// ft_printf(" mau : %lu  mau + 1 : %lu\n", test2, test2 + 1);
+	// ft_printf(" mau : %lu  mau + 1 : %lu\n", test3, test3 + 1);
+	// ft_printf(" mau : %lu  mau + 1 : %lu\n", test4, test4 + 1);
+	// ft_printf(" mau : %lu  mau + 1 : %lu\n", test5, test5 + 1);
+	// ft_printf(" mau : %lu  mau + 1 : %lu\n", test6, test6 + 1);
+	// printf("\n");
+	//
+	// //			Z
+	// printf("Z:\n");
+	// printf(" rdm : %zu  rdm + 1 : %zu\n", test0, test0 + 1);
+	// printf(" mau : %zu  mau + 1 : %zu\n", test1, test1 + 1);
+	// printf(" mau : %zu  mau + 1 : %zu\n", test2, test2 + 1);
+	// printf(" mau : %zu  mau + 1 : %zu\n", test3, test3 + 1);
+	// printf(" mau : %zu  mau + 1 : %zu\n", test4, test4 + 1);
+	// printf(" mau : %zu  mau + 1 : %zu\n", test5, test5 + 1);
+	// printf(" mau : %zu  mau + 1 : %zu\n", test6, test6 + 1);
+	// printf("\n");
+	// ft_printf(" rdm : %zu  rdm + 1 : %zu\n", test0, test0 + 1);
+	// ft_printf(" mau : %zu  mau + 1 : %zu\n", test1, test1 + 1);
+	// ft_printf(" mau : %zu  mau + 1 : %zu\n", test2, test2 + 1);
+	// ft_printf(" mau : %zu  mau + 1 : %zu\n", test3, test3 + 1);
+	// ft_printf(" mau : %zu  mau + 1 : %zu\n", test4, test4 + 1);
+	// ft_printf(" mau : %zu  mau + 1 : %zu\n", test5, test5 + 1);
+	// ft_printf(" mau : %zu  mau + 1 : %zu\n", test6, test6 + 1);
+	// printf("\n");
+	//
+	// //			J
+	// printf("J:\n");
+	// printf(" rdm : %ju  rdm + 1 : %ju\n", test0, test0 + 1);
+	// printf(" mau : %ju  mau + 1 : %ju\n", test1, test1 + 1);
+	// printf(" mau : %ju  mau + 1 : %ju\n", test2, test2 + 1);
+	// printf(" mau : %ju  mau + 1 : %ju\n", test3, test3 + 1);
+	// printf(" mau : %ju  mau + 1 : %ju\n", test4, test4 + 1);
+	// printf(" mau : %ju  mau + 1 : %ju\n", test5, test5 + 1);
+	// printf(" mau : %ju  mau + 1 : %ju\n", test6, test6 + 1);
+	// printf("\n");
+	// ft_printf(" rdm : %ju  rdm + 1 : %ju\n", test0, test0 + 1);
+	// ft_printf(" mau : %ju  mau + 1 : %ju\n", test1, test1 + 1);
+	// ft_printf(" mau : %ju  mau + 1 : %ju\n", test2, test2 + 1);
+	// ft_printf(" mau : %ju  mau + 1 : %ju\n", test3, test3 + 1);
+	// ft_printf(" mau : %ju  mau + 1 : %ju\n", test4, test4 + 1);
+	// ft_printf(" mau : %ju  mau + 1 : %ju\n", test5, test5 + 1);
+	// ft_printf(" mau : %ju  mau + 1 : %ju\n", test6, test6 + 1);
+	// printf("\n");
+	//
+	// //			H
+	// printf("H:\n");
+	// printf(" rdm : %hu  rdm + 1 : %hu\n", test0, test0 + 1);
+	// printf(" mau : %hu  mau + 1 : %hu\n", test1, test1 + 1);
+	// printf(" mau : %hu  mau + 1 : %hu\n", test2, test2 + 1);
+	// printf(" mau : %hu  mau + 1 : %hu\n", test3, test3 + 1);
+	// printf(" mau : %hu  mau + 1 : %hu\n", test4, test4 + 1);
+	// printf(" mau : %hu  mau + 1 : %hu\n", test5, test5 + 1);
+	// printf(" mau : %hu  mau + 1 : %hu\n", test6, test6 + 1);
+	// printf("\n");
+	// ft_printf(" rdm : %hu  rdm + 1 : %hu\n", test0, test0 + 1);
+	// ft_printf(" mau : %hu  mau + 1 : %hu\n", test1, test1 + 1);
+	// ft_printf(" mau : %hu  mau + 1 : %hu\n", test2, test2 + 1);
+	// ft_printf(" mau : %hu  mau + 1 : %hu\n", test3, test3 + 1);
+	// ft_printf(" mau : %hu  mau + 1 : %hu\n", test4, test4 + 1);
+	// ft_printf(" mau : %hu  mau + 1 : %hu\n", test5, test5 + 1);
+	// ft_printf(" mau : %hu  mau + 1 : %hu\n", test6, test6 + 1);
+	// printf("\n");
+	//
+	// //			HH
+	// printf("HH:\n");
+	// printf(" rdm : %hhu  rdm + 1 : %hhu\n", test0, test0 + 1);
+	// printf(" mau : %hhu  mau + 1 : %hhu\n", test1, test1 + 1);
+	// printf(" mau : %hhu  mau + 1 : %hhu\n", test2, test2 + 1);
+	// printf(" mau : %hhu  mau + 1 : %hhu\n", test3, test3 + 1);
+	// printf(" mau : %hhu  mau + 1 : %hhu\n", test4, test4 + 1);
+	// printf(" mau : %hhu  mau + 1 : %hhu\n", test5, test5 + 1);
+	// printf(" mau : %hhu  mau + 1 : %hhu\n", test6, test6 + 1);
+	// printf("\n");
+	// ft_printf(" rdm : %hhu  rdm + 1 : %hhu\n", test0, test0 + 1);
+	// ft_printf(" mau : %hhu  mau + 1 : %hhu\n", test1, test1 + 1);
+	// ft_printf(" mau : %hhu  mau + 1 : %hhu\n", test2, test2 + 1);
+	// ft_printf(" mau : %hhu  mau + 1 : %hhu\n", test3, test3 + 1);
+	// ft_printf(" mau : %hhu  mau + 1 : %hhu\n", test4, test4 + 1);
+	// ft_printf(" mau : %hhu  mau + 1 : %hhu\n", test5, test5 + 1);
+	// ft_printf(" mau : %hhu  mau + 1 : %hhu\n", test6, test6 + 1);
 
-	int	test0 = 123;
-	int test1 = 32767;                               	 	//short
-	int test2 = 65535;										//u short
-	int test3 = 2147483647;									//int
-	int test4 = 4294967295;									//u int
-	int test5 = 9223372036854775807;						// long long
-	int test6 = 18446744073709551615;						// u long long
 
-	// printf("%maman %S\n", star);
-	// ft_printf("%maman %S\n", star);
-
-	//			LL
-	printf("LL:\n");
-	printf(" rdm : %llx  rdm + 1 : %llx\n", test0, test0 + 1);
-	printf(" max : %llx  max + 1 : %llx\n", test1, test1 + 1);
-	printf(" max : %llx  max + 1 : %llx\n", test2, test2 + 1);
-	printf(" max : %llx  max + 1 : %llx\n", test3, test3 + 1);
-	printf(" max : %llx  max + 1 : %llx\n", test4, test4 + 1);
-	printf(" max : %llx  max + 1 : %llx\n", test5, test5 + 1);
-	printf(" max : %llx  max + 1 : %llx\n", test6, test6 + 1);
-	printf("\n");
-	ft_printf(" rdm : %llx  rdm + 1 : %llx\n", test0, test0 + 1);
-	ft_printf(" max : %llx  max + 1 : %llx\n", test1, test1 + 1);
-	ft_printf(" max : %llx  max + 1 : %llx\n", test2, test2 + 1);
-	ft_printf(" max : %llx  max + 1 : %llx\n", test3, test3 + 1);
-	ft_printf(" max : %llx  max + 1 : %llx\n", test4, test4 + 1);
-	ft_printf(" max : %llx  max + 1 : %llx\n", test5, test5 + 1);
-	ft_printf(" max : %llx  max + 1 : %llx\n", test6, test6 + 1);
-	printf("\n");
-	
-	//			L
-	printf("L:\n");
-	printf(" rdm : %lx  rdm + 1 : %lx\n", test0, test0 + 1);
-	printf(" max : %lx  max + 1 : %lx\n", test1, test1 + 1);
-	printf(" max : %lx  max + 1 : %lx\n", test2, test2 + 1);
-	printf(" max : %lx  max + 1 : %lx\n", test3, test3 + 1);
-	printf(" max : %lx  max + 1 : %lx\n", test4, test4 + 1);
-	printf(" max : %lx  max + 1 : %lx\n", test5, test5 + 1);
-	printf(" max : %lx  max + 1 : %lx\n", test6, test6 + 1);
-	printf("\n");
-	ft_printf(" rdm : %lx  rdm + 1 : %lx\n", test0, test0 + 1);
-	ft_printf(" max : %lx  max + 1 : %lx\n", test1, test1 + 1);
-	ft_printf(" max : %lx  max + 1 : %lx\n", test2, test2 + 1);
-	ft_printf(" max : %lx  max + 1 : %lx\n", test3, test3 + 1);
-	ft_printf(" max : %lx  max + 1 : %lx\n", test4, test4 + 1);
-	ft_printf(" max : %lx  max + 1 : %lx\n", test5, test5 + 1);
-	ft_printf(" max : %lx  max + 1 : %lx\n", test6, test6 + 1);
-	printf("\n");
-
-	//			Z
-	printf("Z:\n");
-	printf(" rdm : %zx  rdm + 1 : %zx\n", test0, test0 + 1);
-	printf(" max : %zx  max + 1 : %zx\n", test1, test1 + 1);
-	printf(" max : %zx  max + 1 : %zx\n", test2, test2 + 1);
-	printf(" max : %zx  max + 1 : %zx\n", test3, test3 + 1);
-	printf(" max : %zx  max + 1 : %zx\n", test4, test4 + 1);
-	printf(" max : %zx  max + 1 : %zx\n", test5, test5 + 1);
-	printf(" max : %zx  max + 1 : %zx\n", test6, test6 + 1);
-	printf("\n");
-	ft_printf(" rdm : %zx  rdm + 1 : %zx\n", test0, test0 + 1);
-	ft_printf(" max : %zx  max + 1 : %zx\n", test1, test1 + 1);
-	ft_printf(" max : %zx  max + 1 : %zx\n", test2, test2 + 1);
-	ft_printf(" max : %zx  max + 1 : %zx\n", test3, test3 + 1);
-	ft_printf(" max : %zx  max + 1 : %zx\n", test4, test4 + 1);
-	ft_printf(" max : %zx  max + 1 : %zx\n", test5, test5 + 1);
-	ft_printf(" max : %zx  max + 1 : %zx\n", test6, test6 + 1);
-	printf("\n");
-
-	//			J
-	printf("J:\n");
-	printf(" rdm : %jx  rdm + 1 : %jx\n", test0, test0 + 1);
-	printf(" max : %jx  max + 1 : %jx\n", test1, test1 + 1);
-	printf(" max : %jx  max + 1 : %jx\n", test2, test2 + 1);
-	printf(" max : %jx  max + 1 : %jx\n", test3, test3 + 1);
-	printf(" max : %jx  max + 1 : %jx\n", test4, test4 + 1);
-	printf(" max : %jx  max + 1 : %jx\n", test5, test5 + 1);
-	printf(" max : %jx  max + 1 : %jx\n", test6, test6 + 1);
-	printf("\n");
-	ft_printf(" rdm : %jx  rdm + 1 : %jx\n", test0, test0 + 1);
-	ft_printf(" max : %jx  max + 1 : %jx\n", test1, test1 + 1);
-	ft_printf(" max : %jx  max + 1 : %jx\n", test2, test2 + 1);
-	ft_printf(" max : %jx  max + 1 : %jx\n", test3, test3 + 1);
-	ft_printf(" max : %jx  max + 1 : %jx\n", test4, test4 + 1);
-	ft_printf(" max : %jx  max + 1 : %jx\n", test5, test5 + 1);
-	ft_printf(" max : %jx  max + 1 : %jx\n", test6, test6 + 1);
-	printf("\n");
-
-	//			H
-	printf("H:\n");
-	printf(" rdm : %hx  rdm + 1 : %hx\n", test0, test0 + 1);
-	printf(" max : %hx  max + 1 : %hx\n", test1, test1 + 1);
-	printf(" max : %hx  max + 1 : %hx\n", test2, test2 + 1);
-	printf(" max : %hx  max + 1 : %hx\n", test3, test3 + 1);
-	printf(" max : %hx  max + 1 : %hx\n", test4, test4 + 1);
-	printf(" max : %hx  max + 1 : %hx\n", test5, test5 + 1);
-	printf(" max : %hx  max + 1 : %hx\n", test6, test6 + 1);
-	printf("\n");
-	ft_printf(" rdm : %hx  rdm + 1 : %hx\n", test0, test0 + 1);
-	ft_printf(" max : %hx  max + 1 : %hx\n", test1, test1 + 1);
-	ft_printf(" max : %hx  max + 1 : %hx\n", test2, test2 + 1);
-	ft_printf(" max : %hx  max + 1 : %hx\n", test3, test3 + 1);
-	ft_printf(" max : %hx  max + 1 : %hx\n", test4, test4 + 1);
-	ft_printf(" max : %hx  max + 1 : %hx\n", test5, test5 + 1);
-	ft_printf(" max : %hx  max + 1 : %hx\n", test6, test6 + 1);
-	printf("\n");
-	
-	//			HH
-	printf("HH:\n");
-	printf(" rdm : %hhx  rdm + 1 : %hhx\n", test0, test0 + 1);
-	printf(" max : %hhx  max + 1 : %hhx\n", test1, test1 + 1);
-	printf(" max : %hhx  max + 1 : %hhx\n", test2, test2 + 1);
-	printf(" max : %hhx  max + 1 : %hhx\n", test3, test3 + 1);
-	printf(" max : %hhx  max + 1 : %hhx\n", test4, test4 + 1);
-	printf(" max : %hhx  max + 1 : %hhx\n", test5, test5 + 1);
-	printf(" max : %hhx  max + 1 : %hhx\n", test6, test6 + 1);
-	printf("\n");
-	ft_printf(" rdm : %hhx  rdm + 1 : %hhx\n", test0, test0 + 1);
-	ft_printf(" max : %hhx  max + 1 : %hhx\n", test1, test1 + 1);
-	ft_printf(" max : %hhx  max + 1 : %hhx\n", test2, test2 + 1);
-	ft_printf(" max : %hhx  max + 1 : %hhx\n", test3, test3 + 1);
-	ft_printf(" max : %hhx  max + 1 : %hhx\n", test4, test4 + 1);
-	ft_printf(" max : %hhx  max + 1 : %hhx\n", test5, test5 + 1);
-	ft_printf(" max : %hhx  max + 1 : %hhx\n", test6, test6 + 1);
-	
-	
 	return (0);
 }

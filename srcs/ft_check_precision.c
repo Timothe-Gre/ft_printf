@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 22:12:24 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 17:38:13 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 11:02:11 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	ft_check_precision(pf_flags *flags, char **str)
 		(*str)++;
 	}
 	flags->check_flags += 0x04;
-	(*str)++;
+	if (flags->precision == 0)
+		(*str)++;
 }
