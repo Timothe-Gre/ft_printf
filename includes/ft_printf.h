@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:46:19 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 14:39:23 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 15:07:31 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ typedef	struct		s_flags
 	unsigned int	width;
 	char			check_char;;
 }					pf_flags;
-
-typedef	struct		s_elem
-{
-	intmax_t		elem;
-	uintmax_t		u_elem;
-}					t_elem;
 
 typedef struct		s_specifier
 {
@@ -85,7 +79,8 @@ void				ft_putnbr_no_minus(intmax_t n);
 void				ft_putwchar(wchar_t element);
 void				ft_putwstr(wchar_t *str);
 
-size_t				ft_len_number(int nb, size_t len, char base);
+size_t				ft_len_number(intmax_t nb, size_t len, char base);
+size_t				ft_len_number_u(uintmax_t nb, size_t len, char base);
 
 int					ft_parse_flags(const char *format, va_list ap, size_t *ret);
 void				ft_check_characters(pf_flags *flags, char **str);

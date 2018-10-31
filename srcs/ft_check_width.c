@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 22:33:13 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 14:40:23 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 15:02:23 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	ft_print_width(intmax_t element, pf_flags flags, int len)
 	int diff;
 
 	diff = 0;
+	if (flags.width < flags.precision)
+		return ;
 	if (element < 0)
 		flags.width--;
 	if (flags.precision > len)

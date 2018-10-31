@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 00:51:41 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 14:33:17 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 15:02:49 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int		main(int ac, char **av)
 
 
 
-	printf("%10.5d\n", -2142);
-	ft_printf("%10.5d\n", -2142);
+	printf("%10.20jd\n", -2142);
+	ft_printf("%10.20jd\n", -2142);
 	//
 	// // printf("%maman %S\n", star);
 	// // ft_printf("%maman %S\n", star);
