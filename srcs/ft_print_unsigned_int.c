@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:02 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/30 17:21:36 by tigre            ###   ########.fr       */
+/*   Updated: 2018/10/31 14:32:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	print_o(void *element, pf_flags flags)
 		modifier[flags.index_m].fct_m(element, flags);
 		return ;
 	}
+	ft_write_p_u((unsigned int)element, flags, 8);
 	ft_putnbr_base((unsigned int)element, 8, 0);
 }
 
@@ -30,6 +31,7 @@ void	print_u(void *element, pf_flags flags)
 		modifier[flags.index_m].fct_m(element, flags);
 		return ;
 	}
+	ft_write_p_u((unsigned int)element, flags, 10);
 	ft_putnbr_base((unsigned int)element, 10, 0);
 }
 
@@ -40,6 +42,7 @@ void	print_x(void *element, pf_flags flags)
 		modifier[flags.index_m].fct_m(element, flags);
 		return ;
 	}
+	ft_write_p_u((unsigned int)element, flags, 16);
 	ft_putnbr_base((unsigned int)element, 16, 0);
 }
 
@@ -50,6 +53,7 @@ void	print_X(void *element, pf_flags flags)
 		modifier[flags.index_m].fct_m(element, flags);
 		return ;
 	}
+	ft_write_p_u((unsigned int)element, flags, 16);
 	ft_putnbr_base((unsigned int)element, 16, 1);
 }
 

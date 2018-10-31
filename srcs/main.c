@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 00:51:41 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 12:33:35 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 14:33:17 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,42 @@ int		main(int ac, char **av)
 	// wchar_t *star = L"初めまして。";
 	//	long	a = 123123;
 	//
-	int	test0 = -123;
-	int test1 = 32767;                               	 	//short
-	int test2 = 65535;										//u short
-	int test3 = 2147483647;									//int
-	int test4 = 4294967295;									//u int
-	int test5 = 9223372036854775807;						// long long
-	int test6 = 18446744073709551615;						// u long long
+	// int test0 = 123;
+	// int test1 = 32767;                               	 	//short
+	// int test2 = 65535;										//u short
+	// int test3 = 2147483647;									//int
+	// int test4 = 4294967295;									//u int
+	// int test5 = 9223372036854775807;						// long long
+	// int test6 = 18446744073709551615;						// u long long
+
+
+
+	printf("%10.5d\n", -2142);
+	ft_printf("%10.5d\n", -2142);
 	//
 	// // printf("%maman %S\n", star);
 	// // ft_printf("%maman %S\n", star);
 	//
-	ft_printf("%.30hd\n", test0);
-	   printf("%.30hd\n", test0);
-	printf("\n\n");
-	ft_printf("%.30hd\n", test1);
-	   printf("%.30hd\n", test1);
-	printf("\n\n");
-	ft_printf("%.30hd\n", test2);
-	   printf("%.30hd\n", test2);
-	printf("\n\n");
-	ft_printf("%.30hd\n", test3);
-	   printf("%.30hd\n", test3);
-	printf("\n\n");
-	ft_printf("%.30hd\n", test4);
-	   printf("%.30hd\n", test4);
-	printf("\n\n");
-	ft_printf("%.30hd\n", test5);
-	   printf("%.30hd\n", test5);
-	printf("\n\n");
-	ft_printf("%.30hd\n", test6);
-	   printf("%.30hd\n", test6);
+	// ft_printf("%10.30hd\n", test0);
+	//    printf("%10.30hd\n", test0);
+	// printf("\n\n");
+	// ft_printf("%.30hd\n", test1);
+	//    printf("%.30hd\n", test1);
+	// printf("\n\n");
+	// ft_printf("%.30hd\n", test2);
+	//    printf("%.30hd\n", test2);
+	// printf("\n\n");
+	// ft_printf("%.30hd\n", test3);
+	//    printf("%.30hd\n", test3);
+	// printf("\n\n");
+	// ft_printf("%.30hd\n", test4);
+	//    printf("%.30hd\n", test4);
+	// printf("\n\n");
+	// ft_printf("%.30hd\n", test5);
+	//    printf("%.30hd\n", test5);
+	// printf("\n\n");
+	// ft_printf("%.30hd\n", test6);
+	//    printf("%.30hd\n", test6);
 	// //			LL
 	// printf("LL:\n");
 	// printf(" rdm : %llu  rdm + 1 : %llu\n", test0, test0 + 1);

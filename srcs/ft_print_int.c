@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:53 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/31 11:07:48 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 14:34:03 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	print_d_i(void *element, pf_flags flags)
 		modifier[flags.index_m].fct_m(element, flags);
 		return ;
 	}
-	ft_putnbr((int)element);
+	ft_write_p((int)element, flags, 10);
+	ft_putnbr_no_minus((int)element);
 }
 
 void	print_D(void *element, pf_flags flags)

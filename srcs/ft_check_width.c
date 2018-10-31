@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 22:33:13 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/27 17:57:22 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 14:40:23 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,24 @@ void	ft_check_width(pf_flags *flags, char **str)
 		(*str)++;
 	}
 	flags->check_flags += 0x08;
-	(*str)++;
+	if (flags->width == 0)
+		(*str)++;
+}
+
+void	ft_print_width(intmax_t element, pf_flags flags, int len)
+{
+	int diff;
+
+	diff = 0;
+	if (element < 0)
+		flags.width--;
+	if (flags.precision > len)
+		diff = flags.precision - len;
+	if (flags.width > 0)
+		flags.width = flags.width - len - diff;
+	while(flags.width > 0)
+	{
+		ft_putchar(' ');
+		flags.width--;
+	}
 }

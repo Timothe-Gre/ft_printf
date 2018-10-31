@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 18:46:19 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 12:37:59 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 14:39:23 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,13 @@ int					ft_parse_flags(const char *format, va_list ap, size_t *ret);
 void				ft_check_characters(pf_flags *flags, char **str);
 void				ft_check_modifier(pf_flags *flags, char **str);
 void				ft_check_precision(pf_flags *flags, char **str);
+void				ft_write_p_u(uintmax_t element, pf_flags flags, char base);
+void				ft_write_p(intmax_t element, pf_flags flags, char base);
+
 int					ft_check_specifier(pf_flags *flags, char *str);
+
 void				ft_check_width(pf_flags *flags, char **str);
-
-
+void				ft_print_width(intmax_t element, pf_flags flags, int len);
 
 
 

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:02 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/31 12:39:23 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/10/31 14:41:25 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_putlnbr(long int n)
 	if (n < 0)
 	{
 		n = -n;
-		ft_putchar('-');
+		// ft_putchar('-');
 	}
 	if (n >= 10)
 		ft_putlnbr(n / 10);
@@ -65,7 +65,10 @@ void	ft_putlnbr(long int n)
 void	ft_putnbr_no_minus(intmax_t n)
 {
 	if (n < 0)
-		n = n * (-1);
+	{
+		n = -n;
+		// ft_putchar('-');
+	}
 	if (n >= 10)
 		ft_putnbr_no_minus(n / 10);
 	ft_putchar((n  % 10) + '0');
