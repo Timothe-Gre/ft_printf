@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 00:51:41 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 15:02:49 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/07 16:21:19 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ int		main(int ac, char **av)
 	(void)ac;
 	(void)av;
 
-	unsigned short test = 30560;
+	// unsigned short test = 30560;
 
 
 
-	// setlocale(LC_CTYPE, "");
-	// wchar_t *star = L"初めまして。";
+	setlocale(LC_CTYPE, "");
+	wchar_t *star = L"я не понял";
 	//	long	a = 123123;
+	// wchar_t star0 = 0x2605;
 	//
 	// int test0 = 123;
 	// int test1 = 32767;                               	 	//short
@@ -33,13 +34,36 @@ int		main(int ac, char **av)
 	// int test5 = 9223372036854775807;						// long long
 	// int test6 = 18446744073709551615;						// u long long
 
-
-
-	printf("%10.20jd\n", -2142);
-	ft_printf("%10.20jd\n", -2142);
 	//
-	// // printf("%maman %S\n", star);
-	// // ft_printf("%maman %S\n", star);
+	// ft_printf("%s\n", "test de merde");
+	// printf("%s\n", "test de merde");
+	// ft_printf("%.10d\n", 10548);
+	// printf("%.10d\n", 10548);
+	// ft_printf("%32.30d\n", 21444);
+	// printf("%32.30d\n", 21444);
+
+	// ft_printf("%20.10ho\n", -2148474836);
+	// ft_printf("%60.50lO\n", 2148474836);
+
+	// printf("%60.50lO\n", 2148474836);
+
+
+	// ft_printf("%sdshj\n", "test de merdedss a");
+ 	// ft_printf("%sdsds\n", "test de merde");
+	// printf("%sdsds\n", "test de merde");
+
+	// printf("%-50s  dsds\n", "test de merde");
+
+	// printf("%10.20jd\n", -2142);
+	// ft_printf("%10.20jd\n", -2142);
+	// ft_printf("%10.s ds\n", "test de merde");
+	// printf("%10.s ds\n", "test de merde");
+
+	//
+	printf("%ls\n", star);
+	ft_printf("%ls\n", star);
+
+	// ft_printf("%maman %.10S\n", star);
 	//
 	// ft_printf("%10.30hd\n", test0);
 	//    printf("%10.30hd\n", test0);

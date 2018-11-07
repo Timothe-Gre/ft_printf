@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/26 19:13:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 14:02:02 by ghtouman         ###   ########.fr       */
+/*   Created: 2018/11/06 14:31:27 by ghtouman          #+#    #+#             */
+/*   Updated: 2018/11/07 14:04:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int				ft_parse_flags(const char *format, va_list ap, size_t *ret)
 			(*ret)++;
 		}
 		tmp++;
+
 	}
 	return (*ret);
 }

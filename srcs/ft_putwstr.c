@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putwstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/24 11:18:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/29 18:23:10 by tigre            ###   ########.fr       */
+/*   Created: 2018/11/06 14:30:21 by ghtouman          #+#    #+#             */
+/*   Updated: 2018/11/07 16:04:37 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
  	int i;
 
  	i = -1;
+
 	if (str)
 	{
  		while (str[++i])
@@ -28,3 +29,25 @@
 		}
  	}
 }
+
+
+// void	print_s(void *element, pf_flags flags)
+// {
+// 	char *str;
+//
+// 	str = (char*)element;
+//
+// 	ft_print_width_s(flags, ft_strlen(str));
+// 	if ((flags.check_flags & 0x04) && flags.precision == 0)
+// 		return ;
+// 	if (flags.precision > 0)
+// 	{
+// 		while (flags.precision > 0)
+// 		{
+// 			ft_putchar(*str++);
+// 			flags.precision--;
+// 		}
+// 		return ;
+// 	}
+// 	ft_putstr(str);
+// }

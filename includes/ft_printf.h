@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/26 18:46:19 by tigre             #+#    #+#             */
-/*   Updated: 2018/10/31 15:07:31 by ghtouman         ###   ########.fr       */
+/*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
+/*   Updated: 2018/11/07 14:03:33 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ int					ft_check_specifier(pf_flags *flags, char *str);
 
 void				ft_check_width(pf_flags *flags, char **str);
 void				ft_print_width(intmax_t element, pf_flags flags, int len);
+void				ft_print_width_s(pf_flags flags, size_t len);
+
 
 
 

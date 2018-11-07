@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/25 15:22:04 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/25 18:10:59 by tigre            ###   ########.fr       */
+/*   Created: 2018/11/06 14:30:33 by ghtouman          #+#    #+#             */
+/*   Updated: 2018/11/06 14:30:39 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "ft_printf.h"
+#include "ft_printf.h"
 
 void 	ft_putwchar(wchar_t element)
 {
