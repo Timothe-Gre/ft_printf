@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 00:51:41 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/07 16:21:19 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/07 17:56:24 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int		main(int ac, char **av)
 
 
 	setlocale(LC_CTYPE, "");
-	wchar_t *star = L"я не понял";
+	//wchar_t *star = L"я не понял";
+	wchar_t *star = L"я н";
 	//	long	a = 123123;
 	// wchar_t star0 = 0x2605;
 	//
@@ -60,8 +61,8 @@ int		main(int ac, char **av)
 	// printf("%10.s ds\n", "test de merde");
 
 	//
-	printf("%ls\n", star);
-	ft_printf("%ls\n", star);
+	printf("%.4S|\n", star);
+	ft_printf("%.4S|\n", star);
 
 	// ft_printf("%maman %.10S\n", star);
 	//

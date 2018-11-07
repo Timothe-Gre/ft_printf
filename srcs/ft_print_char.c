@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/07 16:21:43 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/07 17:57:24 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,24 @@ void	print_s(void *element, pf_flags flags)
 
 void	print_S(void *element, pf_flags flags)
 {
-	ft_putwstr((wchar_t*)element);
+	wchar_t		*str;
+	size_t		i;
+	size_t		weight;
+	long int	p;
+
+	str = (wchar_t*)element;
+	i = 0;
+	if (flags.check_flags & 0x04)
+	{
+		p = (long int)flags.precision;
+		while (p > 0)
+		{
+			weight = ft_size_wchar(str[i]);
+			if (p >= weight)
+				ft_putwchar(str[i++]);
+			p = p - weight;
+		}
+	}
+	else
+		ft_putwstr((wchar_t*)element);
 }

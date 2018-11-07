@@ -6,7 +6,7 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/10/31 12:38:35 by ghtouman         ###   ########.fr        #
+#    Updated: 2018/11/07 17:26:18 by tigre            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,9 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)ft_len_number.c		\
 	  $(SRC_PATH)ft_print_char.c		\
 	  $(SRC_PATH)ft_putwchar.c			\
-	  $(SRC_PATH)ft_putwstr.c
+	  $(SRC_PATH)ft_putwstr.c			\
+	  $(SRC_PATH)ft_size_wchar.c			
+
 
 
 OBJ = $(SRC:c=o)
