@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:27 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/07 14:04:57 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/08 21:38:48 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int				ft_parse_flags(const char *format, va_list ap, size_t *ret)
 				ft_putchar('%');
 			else
 			{
-				flags = (pf_flags){0, 0, 0, 0, 0, 0};
+				flags = (pf_flags){0, 0, 0, 0, 0, ' ', 0};
 				ft_check_characters(&flags, &tmp);
 				ft_check_width(&flags, &tmp);
 				ft_check_precision(&flags, &tmp);

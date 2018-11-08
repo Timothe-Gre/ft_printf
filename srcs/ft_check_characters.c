@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:11 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/07 10:40:10 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/08 18:54:39 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_check_characters(pf_flags *flags, char **str)
 			(*str)++;
 			flags->check_flags |= 0x10;
 		}
-		i++;
+		else
+			i++;
 	}
 }

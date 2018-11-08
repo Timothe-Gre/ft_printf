@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/07 17:27:22 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/08 22:14:39 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 #include <stdarg.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -26,7 +27,8 @@ typedef	struct		s_flags
 	unsigned char	index_m;
 	unsigned int	precision;
 	unsigned int	width;
-	char			check_char;;
+	char			w;
+	char			check_char;
 }					pf_flags;
 
 typedef struct		s_specifier
@@ -44,7 +46,7 @@ typedef struct		s_modifier
 typedef struct		s_character
 {
 	char			flag_c;
-	//	void			(*fct)(char);
+	void			(*fct_c)(void*, pf_flags*);
 }					t_character;
 
 int					ft_printf(const char *format, ...);
@@ -86,18 +88,22 @@ int					ft_parse_flags(const char *format, va_list ap, size_t *ret);
 void				ft_check_characters(pf_flags *flags, char **str);
 void				ft_check_modifier(pf_flags *flags, char **str);
 void				ft_check_precision(pf_flags *flags, char **str);
-void				ft_write_p_u(uintmax_t element, pf_flags flags, char base);
-void				ft_write_p(intmax_t element, pf_flags flags, char base);
+int					ft_write_p_u(uintmax_t element, pf_flags flags, char base);
+int					ft_write_p(intmax_t element, pf_flags flags, char base);
 
 int					ft_check_specifier(pf_flags *flags, char *str);
 
 void				ft_check_width(pf_flags *flags, char **str);
 void				ft_print_width(intmax_t element, pf_flags flags, int len);
+void				ft_print_width_u(uintmax_t element, pf_flags flags, int len);
 void				ft_print_width_s(pf_flags flags, size_t len);
-size_t				ft_size_wchar(wchar_t c);
+size_t				ft_weight_wchar(wchar_t c);
+void				ft_width_unicode(pf_flags flags, wchar_t *str);
 
-
-
+void				charac_plus_sign(void *element, pf_flags *flags);
+void				charac_sp(void *element, pf_flags *flags);
+void				charac_sharp(void *element, pf_flags *flags);
+void				charac_zero(void *element, pf_flags *flags);
 
 
 

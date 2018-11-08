@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/24 14:23:36 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/07 15:14:23 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/08 21:47:41 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 static t_specifier	specifier[] =
 {
 	{'d', &print_d_i},
-	{'D', &print_D},
 	{'i', &print_d_i},
+	{'D', &print_D},
 	{'o', &print_o},
 	{'O', &print_O},
 	{'u', &print_u},
 	{'U', &print_U},
 	{'x', &print_x},
 	{'X', &print_X},
+	{'p', &print_p},
 	{'c', &print_c},
 	{'C', &print_C},
 	{'s', &print_s},
 	{'S', &print_S},
-	{'p', &print_p},
 	{'\0', NULL}
 };
 
@@ -41,15 +41,16 @@ static t_modifier	modifier[] =
 	{'z', &modif_z},
 	{'H', &modif_hh},
 	{'L', &modif_ll},
-	{'\0'}
+	{'\0', NULL}
 };
 
 static t_character	character[] =
 {
-	{'#'},
-	// {'2'},
-	// {'3'},
-	{'4'},
+	{'0', &charac_zero},
+	{'#', &charac_sharp},
+	{'-'},
+	{'+', &charac_plus_sign},
+	{' ', &charac_sp},
 	{'\0'}
 };
 

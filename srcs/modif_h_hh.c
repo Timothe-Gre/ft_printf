@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 14:02:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/10/31 14:17:46 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/08 22:18:04 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 void		modif_h(void *element, pf_flags flags)
 {
-	if ( flags.index_s == 3)
+	if (flags.index_s == 3)
 	{
-		ft_write_p_u((unsigned short int)element, flags, 8);
-		ft_putnbr_base((unsigned short int)element, 8, 0);
+		if (ft_write_p_u((unsigned short int)element, flags, 8))
+			ft_putnbr_base((unsigned short int)element, 8, 0);
 	}
 	else if (flags.index_s == 5)
 	{
-		ft_write_p_u((unsigned short int)element, flags, 10);
-		ft_putnbr_base((unsigned short int)element, 10, 0);
+		if (ft_write_p_u((unsigned short int)element, flags, 10))
+			ft_putnbr_base((unsigned short int)element, 10, 0);
 	}
 	else if (flags.index_s == 7)
 	{
-		ft_write_p_u((unsigned short int)element, flags, 16);
-		ft_putnbr_base((unsigned short int)element, 16, 0);
+		if (ft_write_p_u((unsigned short int)element, flags, 16))
+			ft_putnbr_base((unsigned short int)element, 16, 0);
 	}
 	else if (flags.index_s == 8)
 	{
-		ft_write_p_u((unsigned short int)element, flags, 16);
-		ft_putnbr_base((unsigned short int)element, 16, 1);
+		if (ft_write_p_u((unsigned short int)element, flags, 16))
+			ft_putnbr_base((unsigned short int)element, 16, 1);
 	}
 	else
 	{
-		ft_write_p((short int)element, flags, 10);
-		ft_putnbr_no_minus((short int)element);
+		if (ft_write_p((short int)element, flags, 10))
+			ft_putnbr_no_minus((short int)element);
 	}
 }
 
@@ -45,27 +45,27 @@ void		modif_hh(void *element, pf_flags flags)
 {
 	if ( flags.index_s == 3)
 	{
-		ft_write_p_u((unsigned char)element, flags, 8);
-		ft_putnbr_base((unsigned char)element, 8, 0);
+		if (ft_write_p_u((unsigned char)element, flags, 8))
+			ft_putnbr_base((unsigned char)element, 8, 0);
 	}
 	else if (flags.index_s == 5)
 	{
-		ft_write_p_u((unsigned char)element, flags, 10);
-		ft_putnbr_base((unsigned char)element, 10, 0);
+		if (ft_write_p_u((unsigned char)element, flags, 10))
+			ft_putnbr_base((unsigned char)element, 10, 0);
 	}
 	else if (flags.index_s == 7)
 	{
-		ft_write_p_u((unsigned char)element, flags, 16);
-		ft_putnbr_base((unsigned char)element, 16, 0);
+		if (ft_write_p_u((unsigned char)element, flags, 16))
+			ft_putnbr_base((unsigned char)element, 16, 0);
 	}
 	else if (flags.index_s == 8)
 	{
-		ft_write_p_u((unsigned char)element, flags, 16);
-		ft_putnbr_base((unsigned char)element, 16, 1);
+		if (ft_write_p_u((unsigned char)element, flags, 16))
+			ft_putnbr_base((unsigned char)element, 16, 1);
 	}
 	else
 	{
-		ft_write_p((char)element, flags, 10);
-		ft_putnbr((char)element);
+		if (ft_write_p((char)element, flags, 10))
+			ft_putnbr((char)element);
 	}
 }
