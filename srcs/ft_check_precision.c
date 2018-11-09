@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:59 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 19:30:20 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:42:09 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ int		ft_write_p_u(uintmax_t element, pf_flags flags, char base)
 		return (0);
 	len_number = ft_len_number_u(element, 0, base);
 	if (!(flags.check_char & 0x04))
-		ft_print_width_u(element, flags, len_number);
+		ft_print_width_u(flags, len_number);
 	if (flags.check_char & 0x02)
 	{
-		if (flags.precision > len_number &&
+		if (flags.precision > (unsigned int)len_number &&
 		(flags.index_s == 3 || flags.index_s == 4))
 			flags.precision--;
 		character[1].fct_c((void*)element, &flags);
 	}
-	while (flags.precision > len_number)
+	while (flags.precision > (unsigned int)len_number)
 	{
 		ft_putchar_count("0", 1);
 		flags.precision--;
@@ -65,7 +65,7 @@ int		ft_write_p(intmax_t element, pf_flags flags, char base)
 		ft_putchar_count("-", 1);
 		flags.precision++;
 	}
-	while (flags.precision > len_number)
+	while (flags.precision > (unsigned int)len_number)
 	{
 		ft_putchar_count("0", 1);
 		flags.precision--;

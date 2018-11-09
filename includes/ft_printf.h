@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 20:10:15 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 21:19:33 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-#include "../libft/libft.h"
 int g_ret;
 
 typedef	struct		s_flags
@@ -98,21 +97,18 @@ int					ft_check_specifier(pf_flags *flags, char *str);
 
 void				ft_check_width(pf_flags *flags, char **str);
 void				ft_print_width(intmax_t element, pf_flags flags, int len);
-void				ft_print_width_u(uintmax_t element, pf_flags flags, int len);
+void				ft_print_width_u(pf_flags flags, int len);
 void				ft_print_width_s(pf_flags flags, size_t len);
 void				ft_back_w(pf_flags flags, size_t len);
 
 size_t				ft_weight_wchar(wchar_t c);
-size_t				ft_strwlen(wchar_t *str);
 void				ft_width_unicode(pf_flags flags, wchar_t *str);
 
 void				charac_plus_sign(void *element, pf_flags *flags);
 void				charac_sp(void *element, pf_flags *flags);
 void				charac_sharp(void *element, pf_flags *flags);
 void				charac_zero(void *element, pf_flags *flags);
+void				charac_minus(void *element, pf_flags *flags);
 
-
-
-
-
+size_t				ft_strlen(const char *str);
 # endif

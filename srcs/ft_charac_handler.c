@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:20:15 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/09 19:27:49 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:44:40 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,20 @@ void	charac_sharp(void *element, pf_flags *flags)
 		ft_putchar_count("0X", 2);
 }
 
+
+void	charac_minus(void *element, pf_flags *flags)
+{
+	(void)element;
+	(void)flags;
+}
+
 void	charac_zero(void *element, pf_flags *flags)
 {
-		if (flags->check_flags & 0x04 && flags->index_s < 10)
-			return;
-		if (flags->check_char & 0x04)
-			return;
-		flags->w = '0';
+	(void)element;
+	
+	if (flags->check_flags & 0x04 && flags->index_s < 10)
+		return;
+	if (flags->check_char & 0x04)
+		return;
+	flags->w = '0';
 }

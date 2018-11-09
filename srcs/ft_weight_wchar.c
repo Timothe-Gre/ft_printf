@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 17:13:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/09 18:53:41 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 21:18:49 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,14 @@ size_t		ft_strwlen(wchar_t *str)
 	while (str[i])
 		len += ft_weight_wchar(str[i++]);
 	return (len);
+}
+
+size_t		ft_strlen(const char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

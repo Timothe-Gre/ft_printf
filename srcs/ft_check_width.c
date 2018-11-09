@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 19:32:03 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:40:51 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_check_width(pf_flags *flags, char **str)
 
 }
 
-void	ft_print_width_u(uintmax_t element, pf_flags flags, int len)
+void	ft_print_width_u(pf_flags flags, int len)
 {
 	long int tmp;
 
@@ -38,7 +38,7 @@ void	ft_print_width_u(uintmax_t element, pf_flags flags, int len)
 		flags.width--;
 	if ((flags.index_s == 7 || flags.index_s == 8) && flags.check_char & 0x02)
 		flags.width -= 2;
-	if (flags.precision > len)
+	if (flags.precision > (unsigned int)len)
 		tmp = flags.precision - len;
 	if (flags.width > 0)
 		tmp = (long int)flags.width - len - tmp;
@@ -59,7 +59,7 @@ void	ft_print_width(intmax_t element, pf_flags flags, int len)
 		return ;
 	if (element < 0)
 		flags.width--;
-	if (flags.precision > len)
+	if (flags.precision > (unsigned int)len)
 		tmp = flags.precision - len;
 	if (flags.width > 0)
 		tmp = (long int)flags.width - len - tmp;
@@ -97,9 +97,9 @@ void	ft_width_unicode(pf_flags flags, wchar_t *str)
 		return ;
 	if (flags.check_flags & 0x04)
 	{
-		while (*str && flags.precision > weight)
+		while (*str && flags.precision > (unsigned int)weight)
 			weight += ft_weight_wchar(*(str++));
-		if (weight > flags.precision)
+		if ((unsigned int)weight > flags.precision)
 			weight -= ft_weight_wchar(*(--str));
 		flags.width -= weight;
 		while(flags.width--)
@@ -108,7 +108,7 @@ void	ft_width_unicode(pf_flags flags, wchar_t *str)
 	}
 	while (*str)
 		weight += ft_weight_wchar(*(str++));
-	if (weight < flags.width)
+	if ((unsigned int)weight < flags.width)
 	{
 		flags.width -= weight;
 		while(flags.width--)

@@ -6,61 +6,53 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/11/09 15:22:18 by ghtouman         ###   ########.fr        #
+#    Updated: 2018/11/09 21:20:39 by ghtouman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FLAG = -Wall -Werror -Wextra
-IDIR = ./includes/
-NAME = a.out
-LIB_PATH = ./libft/
-LIB = libft/libft.a
-SRC_PATH = ./srcs/
+NAME = libftprintf.a
 
-SRC = $(SRC_PATH)main.c					\
-	  $(SRC_PATH)ft_printf.c			\
-	  $(SRC_PATH)ft_parse_flags.c		\
-	  $(SRC_PATH)ft_check_characters.c	\
-	  $(SRC_PATH)ft_check_width.c		\
-	  $(SRC_PATH)ft_check_precision.c	\
-	  $(SRC_PATH)ft_check_modifier.c	\
-	  $(SRC_PATH)ft_check_specifier.c	\
-	  $(SRC_PATH)ft_control.c			\
-	  $(SRC_PATH)ft_print_int.c			\
-	  $(SRC_PATH)ft_print_long.c		\
-	  $(SRC_PATH)ft_print_unsigned_int.c\
-	  $(SRC_PATH)modif_h_hh.c			\
-	  $(SRC_PATH)modif_l_ll.c			\
-	  $(SRC_PATH)modif_j_z.c			\
-	  $(SRC_PATH)ft_putnbr_all.c		\
-	  $(SRC_PATH)ft_len_number.c		\
-	  $(SRC_PATH)ft_print_char.c		\
-	  $(SRC_PATH)ft_putwchar.c			\
-	  $(SRC_PATH)ft_putwstr.c			\
-	  $(SRC_PATH)ft_charac_handler.c	\
-	  $(SRC_PATH)ft_weight_wchar.c		\
-	  $(SRC_PATH)ft_print_width.c
+FLAGS = -Wall -Wextra -Werror
 
-OBJ = $(SRC:c=o)
+SRCS = ft_printf.c		\
+	  ft_parse_flags.c		\
+	  ft_check_characters.c	\
+	  ft_check_width.c		\
+	  ft_check_precision.c	\
+	  ft_check_modifier.c	\
+	  ft_check_specifier.c	\
+	  ft_control.c			\
+	  ft_print_int.c		\
+	  ft_print_long.c		\
+	  ft_print_unsigned_int.c\
+	  modif_h_hh.c			\
+	  modif_l_ll.c			\
+	  modif_j_z.c			\
+	  ft_putnbr_all.c		\
+	  ft_len_number.c		\
+	  ft_print_char.c		\
+	  ft_putwchar.c			\
+	  ft_putwstr.c			\
+	  ft_charac_handler.c	\
+	  ft_weight_wchar.c		\
+	  ft_print_width.c
 
-all:$(NAME)
-$(NAME): $(OBJ) $(LIB)
-	gcc $(OBJ) $(LIB) -g -I $(LIB_PATH) -o $(NAME) #-fsanitize=address
+SRCS_PATH = $(addprefix srcs/, $(SRCS))
+
+OBJ = $(SRCS_PATH:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 %.o: %.c
-	gcc -c -g $< -o $@ -I$(IDIR) #-fsanitize=address
-
-$(OBJ) : $(IDIR)ft_printf.h
+	gcc $(FLAGS) -Ofast -c $< -I ./includes/ -o $@
 
 clean:
 	rm -f $(OBJ)
-	make clean -C $(LIB_PATH)
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(LIB)
 
-re : fclean all
-
-libft/libft.a:
-	make -C libft
+re: fclean all

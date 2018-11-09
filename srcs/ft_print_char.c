@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 20:12:07 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:56:06 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	print_S(void *element, pf_flags flags)
 		while (str[i] && p > 0)
 		{
 			weight = ft_weight_wchar(str[i]);
-			if (p >= weight)
+			if (p >= (long)weight)
 				ft_putwchar(str[i]);
 			p = p - weight;
 		}
