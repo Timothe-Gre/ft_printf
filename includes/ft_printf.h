@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/08 22:14:39 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/09 18:11:54 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ void				modif_ll(void *element, pf_flags);
 void				modif_z(void *element, pf_flags);
 
 int					ft_control(pf_flags flags, va_list ap);
-void				ft_putnbr_base(unsigned int n, unsigned int b, char maj);
-void				ft_putlnbr_base(unsigned long n, unsigned int b, char maj);
-void				ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj);
-void				ft_putlnbr(long int n);
-void				ft_putnbr_no_minus(intmax_t n);
+void				ft_putnbr_base(unsigned int n, unsigned int b, char maj, size_t *len);
+void				ft_putlnbr_base(unsigned long n, unsigned int b, char maj, size_t *len);
+void				ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj, size_t *len);
+void				ft_putlnbr(long int n, size_t *len);
+void				ft_putnbr_no_minus(intmax_t n, size_t *len);
 
 void				ft_putwchar(wchar_t element);
 void				ft_putwstr(wchar_t *str);
@@ -97,6 +97,8 @@ void				ft_check_width(pf_flags *flags, char **str);
 void				ft_print_width(intmax_t element, pf_flags flags, int len);
 void				ft_print_width_u(uintmax_t element, pf_flags flags, int len);
 void				ft_print_width_s(pf_flags flags, size_t len);
+void				ft_back_w(pf_flags flags, size_t len);
+
 size_t				ft_weight_wchar(wchar_t c);
 void				ft_width_unicode(pf_flags flags, wchar_t *str);
 

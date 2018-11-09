@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:20:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/08 16:44:24 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/09 14:41:25 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,50 @@
 
 void	print_p(void *element, pf_flags flags)
 {
-	(void)flags;
+	long int tmp;
+	size_t len;
+
+	len = 1;
+	tmp = 0;
+	if (flags.check_flags & 0x04 && flags.precision > 12)
+		tmp = flags.precision - 12;
+	if (flags.check_flags & 0x08 && flags.width > 14 && !(flags.check_char & 4))
+	{
+		tmp = (long int)flags.width - tmp - 14;
+		while(tmp-- > 0)
+			ft_putchar(flags.w);
+	}
 	ft_putstr("0x");
-	ft_putlnbr_base((unsigned long)element, 16, 0);
+	if (flags.check_flags & 0x04 && flags.precision > 12)
+		while (flags.precision-- > 12)
+			ft_putchar('0');
+	ft_putlnbr_base((unsigned long)element, 16, 0, &len);
+	if (flags.check_flags & 0x08 && flags.width > 14 && (flags.check_char & 04))
+	{
+		tmp = (long int)flags.width - tmp - 14;
+		while(tmp-- > 0)
+			ft_putchar(flags.w);
+	}
 }
 
 void	print_U(void *element, pf_flags flags)
 {
-	ft_write_p_u((unsigned long)element, flags, 10);
-	ft_putlnbr_base((unsigned long)element, 10, 0);
+	size_t len;
+
+	len = 1;
+	if (ft_write_p_u((unsigned long)element, flags, 10))
+		ft_putlnbr_base((unsigned long)element, 10, 0, &len);
+	if (flags.check_char & 0x04)
+		ft_back_w(flags, len);
 }
 
 void	print_O(void *element, pf_flags flags)
 {
-	ft_write_p_u((unsigned long)element, flags, 8);
-	ft_putlnbr_base((unsigned long)element, 8, 0);
+	size_t len;
+
+	len = 1;
+	if (ft_write_p_u((unsigned long)element, flags, 8))
+		ft_putlnbr_base((unsigned long)element, 8, 0, &len);
+	if (flags.check_char & 0x04)
+		ft_back_w(flags, len);
 }

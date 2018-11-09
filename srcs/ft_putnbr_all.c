@@ -6,16 +6,19 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:02 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/08 19:11:04 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/09 13:18:02 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr_base(unsigned int n, unsigned int b, char maj)
+void	ft_putnbr_base(unsigned int n, unsigned int b, char maj, size_t *len)
 {
 	if (n >= b)
-		ft_putnbr_base(n / b, b, maj);
+	{
+		(*len)++;
+		ft_putnbr_base(n / b, b, maj, len);
+	}
 	if (n % b < 10)
 		ft_putchar(n % b + '0');
 	else if (maj == 1)
@@ -24,10 +27,13 @@ void	ft_putnbr_base(unsigned int n, unsigned int b, char maj)
 		ft_putchar(n % b + 'a' - 10);
 }
 
-void	ft_putlnbr_base(unsigned long n, unsigned int b, char maj)
+void	ft_putlnbr_base(unsigned long n, unsigned int b, char maj, size_t *len)
 {
 	if (n >= b)
-		ft_putlnbr_base(n / b, b, maj);
+	{
+		(*len)++;
+		ft_putlnbr_base(n / b, b, maj, len);
+	}
 	if (n % b < 10)
 		ft_putchar(n % b + '0');
 	else if (maj == 1)
@@ -36,10 +42,13 @@ void	ft_putlnbr_base(unsigned long n, unsigned int b, char maj)
 		ft_putchar(n % b + 'a' - 10);
 }
 
-void	ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj)
+void	ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj, size_t *len)
 {
 	if (n >= b)
-		ft_putnbr_base(n / b, b, maj);
+	{
+		(*len)++;
+		ft_putnbr_base(n / b, b, maj, len);
+	}
 	if (n % b < 10)
 		ft_putchar(n % b + '0');
 	else if (maj == 1)
@@ -48,28 +57,34 @@ void	ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj)
 		ft_putchar(n % b + 'a' - 10);
 }
 
-void	ft_putlnbr(long int n)
+void	ft_putlnbr(long int n, size_t *len)
 {
 	if (n == -9223372036854775808)
 		return (ft_putstr("-9223372036854775808"));
 	if (n < 0)
 	{
 		n = -n;
-		// ft_putchar('-');
+		(*len)++;
 	}
 	if (n >= 10)
-		ft_putlnbr(n / 10);
+	{
+		(*len)++;
+		ft_putlnbr(n / 10, len);
+	}
 	ft_putchar(n % 10 + '0');
 }
 
-void	ft_putnbr_no_minus(intmax_t n)
+void	ft_putnbr_no_minus(intmax_t n, size_t *len)
 {
 	if (n < 0)
 	{
 		n = -n;
-		// ft_putchar('-');
+		(*len)++;
 	}
 	if (n >= 10)
-		ft_putnbr_no_minus(n / 10);
+	{
+		(*len)++;
+		ft_putnbr_no_minus(n / 10, len);
+	}
 	ft_putchar((n  % 10) + '0');
 }

@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_characters.c                              :+:      :+:    :+:   */
+/*   ft_print_width.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/06 14:32:11 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 18:12:10 by ghtouman         ###   ########.fr       */
+/*   Created: 2018/11/09 13:28:31 by ghtouman          #+#    #+#             */
+/*   Updated: 2018/11/09 14:32:38 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "ft_flag.h"
 
-int		index_byte(int nb)
+void	ft_back_w(pf_flags flags, size_t len)
 {
-	if (nb == 0)
-		return (1);
-	if (nb > 0)
-		return((index_byte(nb - 1)) * 2);
-	else
-		return (0);
-}
+	long int tmp;
 
-void	ft_check_characters(pf_flags *flags, char **str)
-{
-	int		i;
-
-	i = 0;
-	while (character[i].flag_c)
+	tmp = (long int)flags.width - len - flags.precision;
+	if ((flags.index_s == 3 || flags.index_s == 4) && flags.check_char & 0x02)
+			tmp--;
+	if ((flags.index_s == 7 || flags.index_s == 8) && flags.check_char & 0x02)
+		tmp -= 2;
+	while (tmp > 0)
 	{
-		if (character[i].flag_c == **str)
-		{
-			flags->check_char |= index_byte(i);
-			i = 0;
-			(*str)++;
-			flags->check_flags |= 0x10;
-		}
-		else
-			i++;
+		ft_putchar(flags.w);
+		tmp--;
 	}
 }

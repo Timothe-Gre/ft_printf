@@ -6,7 +6,7 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/11/08 15:04:17 by tigre            ###   ########.fr        #
+#    Updated: 2018/11/09 15:22:18 by ghtouman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,18 +38,17 @@ SRC = $(SRC_PATH)main.c					\
 	  $(SRC_PATH)ft_putwchar.c			\
 	  $(SRC_PATH)ft_putwstr.c			\
 	  $(SRC_PATH)ft_charac_handler.c	\
-	  $(SRC_PATH)ft_weight_wchar.c				
-
-
+	  $(SRC_PATH)ft_weight_wchar.c		\
+	  $(SRC_PATH)ft_print_width.c
 
 OBJ = $(SRC:c=o)
 
 all:$(NAME)
 $(NAME): $(OBJ) $(LIB)
-	gcc $(OBJ) $(LIB) -g -I $(LIB_PATH) -o $(NAME) -fsanitize=address
+	gcc $(OBJ) $(LIB) -g -I $(LIB_PATH) -o $(NAME) #-fsanitize=address
 
 %.o: %.c
-	gcc -c -g $< -o $@ -I$(IDIR) -fsanitize=address
+	gcc -c -g $< -o $@ -I$(IDIR) #-fsanitize=address
 
 $(OBJ) : $(IDIR)ft_printf.h
 

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/08 22:47:49 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/09 15:39:02 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,48 +19,54 @@ void	print_c(void *element, pf_flags flags)
 		print_C(element, flags);
 		return ;
 	}
-	ft_print_width_s(flags, 1);
+	if (!(flags.check_char & 0x04))
+		ft_print_width_s(flags, 1);
 	ft_putchar((char)element);
+	if (flags.check_char & 0x04)
+		ft_print_width_s(flags, 1);
 }
 
 void	print_C(void *element, pf_flags flags)
 {
-	wchar_t gheram;
+	wchar_t gheram[2];
 
-	gheram = (wchar_t)element;
-	if (flags.check_flags & 0x08)
-		ft_width_unicode(flags, (wchar_t*)element);
-	if ((gheram > 255 && MB_CUR_MAX != 4) || gheram < 0x0 ||
-		(gheram >= 0xd800 && gheram <= 0xdfff) || (gheram > 0x10ffff))
+	gheram[0] = (wchar_t)element;
+	gheram[1] = '\0';
+	if (flags.check_flags & 0x08 && (!(flags.check_char & 0x04)))
+		ft_width_unicode(flags, gheram);
+	if ((gheram[0] > 255 && MB_CUR_MAX != 4) || gheram[0] < 0x0 ||
+		(gheram[0] >= 0xd800 && gheram[0] <= 0xdfff) || (gheram[0] > 0x10ffff))
 		return ;
-	else if (gheram > 0x7f && gheram <= 0xff && MB_CUR_MAX != 4)
-		ft_putchar(gheram);
+	else if (gheram[0] > 0x7f && gheram[0] <= 0xff && MB_CUR_MAX != 4)
+		ft_putchar(gheram[0]);
 	else
-		ft_putwchar(gheram);
+		ft_putwchar(gheram[0]);
 }
 
 void	print_s(void *element, pf_flags flags)
 {
 	char *str;
+	unsigned int tmp;
+
+	tmp = flags.precision;
 	if (flags.index_m == 1)
-	{
-		print_S(element, flags);
-		return ;
-	}
+		return (print_S(element, flags));
 	str = (char*)element;
-	ft_print_width_s(flags, ft_strlen(str));
+	if (!(flags.check_char & 0x04))
+		ft_print_width_s(flags, ft_strlen(str));
 	if ((flags.check_flags & 0x04) && flags.precision == 0)
-		return ;
+		return (ft_print_width_s(flags, tmp));
 	if (*str && flags.precision > 0)
 	{
-		while (*str && flags.precision > 0)
-		{
+		while (*str && flags.precision-- > 0)
 			ft_putchar(*str++);
-			flags.precision--;
-		}
+		if (flags.check_char & 0x04)
+			ft_print_width_s(flags, tmp);
 		return ;
 	}
 	ft_putstr(str);
+	if (flags.check_char & 0x04)
+		ft_print_width_s(flags, ft_strlen(str));
 }
 
 void	print_S(void *element, pf_flags flags)
@@ -72,7 +78,7 @@ void	print_S(void *element, pf_flags flags)
 
 	str = (wchar_t*)element;
 	i = 0;
-	if (flags.check_flags & 0x08)
+	if (flags.check_flags & 0x08 && (!(flags.check_char & 0x04)))
 		ft_width_unicode(flags, str);
 	if (flags.check_flags & 0x04)
 	{
@@ -87,4 +93,6 @@ void	print_S(void *element, pf_flags flags)
 	}
 	else
 		ft_putwstr((wchar_t*)element);
+	if (flags.check_flags & 0x08 && flags.check_char & 0x04)
+		ft_width_unicode(flags, str);
 }

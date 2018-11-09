@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 00:51:41 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/08 22:47:46 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/09 16:49:10 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		main(int ac, char **av)
 
 
 	setlocale(LC_CTYPE, "");
-	//wchar_t *star = L"я не понял";
+	wchar_t *star = L"jhdsbhfbhjfd";
 	//wchar_t *star = L"я н";
 	//	long	a = 123123;
 	// wchar_t star0 = 0x2605;
@@ -30,8 +30,8 @@ int		main(int ac, char **av)
 	// int test0 = 123;
 	// int test1 = 32767;                               	 	//short
 	// int test2 = 65535;										//u short
-	 int test3 = 2147483647;									//int
-	 int test4 = 4294967295;									//u int
+	 short int test3 = 214747;									//int
+	 int test4 = 4267295;									//u int
 	// int test5 = 9223372036854775807;						// long long
 	// int test6 = 18446744073709551615;						// u long long
 
@@ -61,8 +61,15 @@ int		main(int ac, char **av)
 	// printf("%10.s ds\n", "test de merde");
 
 	//
-	printf("%010C|\n", 'g');
-	ft_printf("%010C|\n", 'g');
+
+	// printf("%-25S|\n", "fdhuifdhifdhi");
+	printf("%1.2S|\n", L"kjdhdiu");
+	ft_printf("%1.2S|\n", L"kjdhdiu");
+
+	// printf("\n\n");
+	// ft_putnbr(ft_printf("%S|\n", star));
+	// ft_putnbr(ft_printf("%.p|\n", &c));
+	// ft_printf("%15p|\n", &c);
 
 //	printf("%  d\n", 15);
 //	ft_printf("%  d\n", 15);

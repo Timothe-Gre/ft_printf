@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:59 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/08 22:34:11 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/09 13:40:53 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		ft_write_p_u(uintmax_t element, pf_flags flags, char base)
 int		ft_write_p(intmax_t element, pf_flags flags, char base)
 {
 	int len_number;
-	
+
 	if (element == 0 && flags.check_flags & 0x04 && flags.precision == 0)
 		return (0);
 	len_number = ft_len_number(element, 0, base);
