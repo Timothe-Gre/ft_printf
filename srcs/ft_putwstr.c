@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:30:21 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/07 16:04:37 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:11:25 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  		while (str[++i])
 		{
 			if (str[i] > 0x7f && str[i] <= 0xff && MB_CUR_MAX != 4)
-				ft_putchar(str[i]);
+				ft_putchar_one(str[i]);
 			else
 				ft_putwchar(str[i]);
 		}

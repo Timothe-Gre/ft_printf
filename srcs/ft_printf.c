@@ -6,21 +6,31 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/06 14:31:01 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:10:53 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <string.h>
 
+void	ft_putchar_count(char *c, size_t len)
+{
+	write(1, c, len);
+	g_ret += len;
+}
+
+void	ft_putchar_one(char c)
+{
+	write(1, &c, 1);
+	g_ret++;
+}
+
 int			ft_printf(const char *format, ...)
 {	va_list		ap;
-	size_t		ret;
 
-	ret = 0;
+	g_ret = 0;
 	va_start(ap, format);
-	if (!(ft_parse_flags(format, ap, &ret)))
-		return (0);
+	ft_parse_flags(format, ap);
 	va_end(ap);
-	return (ret);
+	return (g_ret);
 }

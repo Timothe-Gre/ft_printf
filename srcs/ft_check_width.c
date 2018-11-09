@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 16:50:04 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:32:03 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_print_width_u(uintmax_t element, pf_flags flags, int len)
 		tmp = (long int)flags.width - len - tmp;
 	while(tmp > 0)
 	{
-		ft_putchar(flags.w);
+		ft_putchar_count(&flags.w, 1);
 		tmp--;
 	}
 }
@@ -65,7 +65,7 @@ void	ft_print_width(intmax_t element, pf_flags flags, int len)
 		tmp = (long int)flags.width - len - tmp;
 	while(tmp > 0)
 	{
-		ft_putchar(flags.w);
+		ft_putchar_count(&flags.w, 1);
 		tmp--;
 	}
 }
@@ -83,7 +83,7 @@ void	ft_print_width_s(pf_flags flags, size_t len)
 		tmp = (long int)flags.width - len;
 	while(tmp > 0)
 	{
-		ft_putchar(flags.w);
+		ft_putchar_count(&flags.w, 1);
 		tmp--;
 	}
 }
@@ -103,7 +103,7 @@ void	ft_width_unicode(pf_flags flags, wchar_t *str)
 			weight -= ft_weight_wchar(*(--str));
 		flags.width -= weight;
 		while(flags.width--)
-			ft_putchar(flags.w);
+			ft_putchar_count(&flags.w, 1);
 		return;
 	}
 	while (*str)
@@ -112,6 +112,6 @@ void	ft_width_unicode(pf_flags flags, wchar_t *str)
 	{
 		flags.width -= weight;
 		while(flags.width--)
-			ft_putchar(flags.w);
+			ft_putchar_count(&flags.w, 1);
 	}
 }

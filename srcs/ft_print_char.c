@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 15:39:02 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:12:07 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_c(void *element, pf_flags flags)
 	}
 	if (!(flags.check_char & 0x04))
 		ft_print_width_s(flags, 1);
-	ft_putchar((char)element);
+	ft_putchar_one((char)element);
 	if (flags.check_char & 0x04)
 		ft_print_width_s(flags, 1);
 }
@@ -38,7 +38,7 @@ void	print_C(void *element, pf_flags flags)
 		(gheram[0] >= 0xd800 && gheram[0] <= 0xdfff) || (gheram[0] > 0x10ffff))
 		return ;
 	else if (gheram[0] > 0x7f && gheram[0] <= 0xff && MB_CUR_MAX != 4)
-		ft_putchar(gheram[0]);
+		ft_putchar_one(gheram[0]);
 	else
 		ft_putwchar(gheram[0]);
 }
@@ -59,12 +59,12 @@ void	print_s(void *element, pf_flags flags)
 	if (*str && flags.precision > 0)
 	{
 		while (*str && flags.precision-- > 0)
-			ft_putchar(*str++);
+			ft_putchar_count(str++, 1);
 		if (flags.check_char & 0x04)
 			ft_print_width_s(flags, tmp);
 		return ;
 	}
-	ft_putstr(str);
+	ft_putchar_count(str, ft_strlen(str));
 	if (flags.check_char & 0x04)
 		ft_print_width_s(flags, ft_strlen(str));
 }
@@ -87,7 +87,7 @@ void	print_S(void *element, pf_flags flags)
 		{
 			weight = ft_weight_wchar(str[i]);
 			if (p >= weight)
-				ft_putwchar(str[i++]);
+				ft_putwchar(str[i]);
 			p = p - weight;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:28:31 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 14:32:38 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:51:50 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_back_w(pf_flags flags, size_t len)
 		tmp -= 2;
 	while (tmp > 0)
 	{
-		ft_putchar(flags.w);
+		ft_putchar_count(&flags.w, 1);
 		tmp--;
 	}
 }

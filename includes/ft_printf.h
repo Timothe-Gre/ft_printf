@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 18:11:54 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/09 20:10:15 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include "../libft/libft.h"
+int g_ret;
 
 typedef	struct		s_flags
 {
@@ -79,12 +80,14 @@ void				ft_putlnbr(long int n, size_t *len);
 void				ft_putnbr_no_minus(intmax_t n, size_t *len);
 
 void				ft_putwchar(wchar_t element);
+void				ft_putchar_count(char *c, size_t len);
+void				ft_putchar_one(char c);
 void				ft_putwstr(wchar_t *str);
 
 size_t				ft_len_number(intmax_t nb, size_t len, char base);
 size_t				ft_len_number_u(uintmax_t nb, size_t len, char base);
 
-int					ft_parse_flags(const char *format, va_list ap, size_t *ret);
+void				ft_parse_flags(const char *format, va_list ap);
 void				ft_check_characters(pf_flags *flags, char **str);
 void				ft_check_modifier(pf_flags *flags, char **str);
 void				ft_check_precision(pf_flags *flags, char **str);
@@ -100,6 +103,7 @@ void				ft_print_width_s(pf_flags flags, size_t len);
 void				ft_back_w(pf_flags flags, size_t len);
 
 size_t				ft_weight_wchar(wchar_t c);
+size_t				ft_strwlen(wchar_t *str);
 void				ft_width_unicode(pf_flags flags, wchar_t *str);
 
 void				charac_plus_sign(void *element, pf_flags *flags);
