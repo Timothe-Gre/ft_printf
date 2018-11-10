@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:53 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 19:16:41 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/10 05:20:53 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	print_d_i(void *element, pf_flags flags)
 	if (ft_write_p((int)element, flags, 10))
 		ft_putnbr_no_minus((int)element, &len);
 	if (flags.check_char & 0x04)
-		ft_back_w(flags, len);
+		ft_back_w((int)element, flags, len);
 }
 
 void	print_D(void *element, pf_flags flags)
@@ -37,5 +37,5 @@ void	print_D(void *element, pf_flags flags)
 	if (ft_write_p((long int)element, flags, 10))
 		ft_putlnbr((long int)element, &len);
 	if (flags.check_char & 0x04)
-		ft_back_w(flags, len);
+		ft_back_w((long int)element, flags, len);
 }

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:20:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 19:51:03 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/10 05:26:04 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	print_U(void *element, pf_flags flags)
 	if (ft_write_p_u((unsigned long)element, flags, 10))
 		ft_putlnbr_base((unsigned long)element, 10, 0, &len);
 	if (flags.check_char & 0x04)
-		ft_back_w(flags, len);
+		ft_back_w((unsigned long)element, flags, len);
 }
 
 void	print_O(void *element, pf_flags flags)
@@ -57,8 +57,11 @@ void	print_O(void *element, pf_flags flags)
 	size_t len;
 
 	len = 1;
-	if (ft_write_p_u((unsigned long)element, flags, 8))
+	if (flags.check_char & 0x02 && (unsigned int)element == 0 &&
+	flags.precision == 0)
+		ft_putchar_one('0');
+	else if (ft_write_p_u((unsigned long)element, flags, 8))
 		ft_putlnbr_base((unsigned long)element, 8, 0, &len);
 	if (flags.check_char & 0x04)
-		ft_back_w(flags, len);
+		ft_back_w((unsigned long)element, flags, len);
 }

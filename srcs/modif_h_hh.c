@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/22 14:02:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 14:42:28 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/10 05:13:50 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,13 @@ void		modif_h(void *element, pf_flags flags)
 
 	len = 1;
 	if (flags.index_s == 3)
-		if (ft_write_p_u((unsigned short int)element, flags, 8))
+	{
+		if ((unsigned short int)element == 0 && flags.precision == 0 &&
+		flags.check_char & 0x02)
+			ft_putchar_one('0');
+		else if (ft_write_p_u((unsigned short int)element, flags, 8))
 			ft_putnbr_base((unsigned short int)element, 8, 0, &len);
+	}
 	if (flags.index_s == 5)
 		if (ft_write_p_u((unsigned short int)element, flags, 10))
 			ft_putnbr_base((unsigned short int)element, 10, 0, &len);
@@ -33,7 +38,7 @@ void		modif_h(void *element, pf_flags flags)
 		if (ft_write_p((short int)element, flags, 10))
 			ft_putnbr_no_minus((short int)element, &len);
 	if (flags.check_char & 0x04)
-		ft_back_w(flags, len);
+		ft_back_w((short int)element, flags, len);
 }
 
 void		modif_hh(void *element, pf_flags flags)
@@ -42,8 +47,13 @@ void		modif_hh(void *element, pf_flags flags)
 
 	len = 1;
 	if ( flags.index_s == 3)
-		if (ft_write_p_u((unsigned char)element, flags, 8))
+	{	
+		if ((unsigned char)element == 0 && flags.precision == 0 &&
+		flags.check_char & 0x02)
+			ft_putchar_one('0');
+		else if (ft_write_p_u((unsigned char)element, flags, 8))
 			ft_putnbr_base((unsigned char)element, 8, 0, &len);
+	}
 	if (flags.index_s == 5)
 		if (ft_write_p_u((unsigned char)element, flags, 10))
 			ft_putnbr_base((unsigned char)element, 10, 0, &len);
@@ -57,5 +67,5 @@ void		modif_hh(void *element, pf_flags flags)
 		if (ft_write_p((char)element, flags, 10))
 			ft_putnbr_no_minus((char)element, &len);
 	if (flags.check_char & 0x04)
-		ft_back_w(flags, len);
+		ft_back_w((char)element, flags, len);
 }

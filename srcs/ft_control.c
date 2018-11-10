@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:38 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 18:12:22 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/10 03:45:00 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ int		ft_control(pf_flags flags, va_list ap)
 	{
 		if (flags.check_char & 0x01)
 			character[0].fct_c(element, &flags);
-		if(flags.check_char & 0x08)
-			character[3].fct_c(element, &flags);
 		if(flags.check_char & 0x10)
 			character[4].fct_c(element, &flags);
 	}
 	if (flags.check_flags && 0x01)
 		specifier[flags.index_s].fct_s(element, flags);
+		
 	return (0);
 }

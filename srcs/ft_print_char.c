@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 20:56:06 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/10 05:16:31 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	print_s(void *element, pf_flags flags)
 	tmp = flags.precision;
 	if (flags.index_m == 1)
 		return (print_S(element, flags));
-	str = (char*)element;
+	if (!(str = (char*)element))
+			return (ft_putchar_count("(null)", 6));
 	if (!(flags.check_char & 0x04))
 		ft_print_width_s(flags, ft_strlen(str));
 	if ((flags.check_flags & 0x04) && flags.precision == 0)
@@ -95,4 +96,15 @@ void	print_S(void *element, pf_flags flags)
 		ft_putwstr((wchar_t*)element);
 	if (flags.check_flags & 0x08 && flags.check_char & 0x04)
 		ft_width_unicode(flags, str);
+}
+
+void	print_percent(void *element, pf_flags flags)
+{
+	(void)element;
+	(void)flags;
+	if (!(flags.check_char & 0x04))
+		ft_print_width_s(flags, 1);
+	ft_putchar_one('%');
+	if (flags.check_char & 0x04)
+		ft_print_width_s(flags, 1);
 }

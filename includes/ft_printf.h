@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 21:19:33 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/10 05:20:04 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void				print_c(void *element, pf_flags flags);
 void				print_C(void *element, pf_flags flags);
 void				print_s(void *element, pf_flags flags);
 void				print_S(void *element, pf_flags flags);
+void				print_percent(void *element, pf_flags flags);
 
 void				modif_h(void *element, pf_flags);
 void				modif_hh(void *element, pf_flags);
@@ -99,7 +100,7 @@ void				ft_check_width(pf_flags *flags, char **str);
 void				ft_print_width(intmax_t element, pf_flags flags, int len);
 void				ft_print_width_u(pf_flags flags, int len);
 void				ft_print_width_s(pf_flags flags, size_t len);
-void				ft_back_w(pf_flags flags, size_t len);
+void				ft_back_w(intmax_t element, pf_flags flags, size_t len);
 
 size_t				ft_weight_wchar(wchar_t c);
 void				ft_width_unicode(pf_flags flags, wchar_t *str);

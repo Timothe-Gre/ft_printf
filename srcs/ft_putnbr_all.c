@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:02 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 20:43:30 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/10 03:40:42 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj, size_t *len)
 	if (n >= b)
 	{
 		(*len)++;
-		ft_putnbr_base(n / b, b, maj, len);
+		ft_putllnbr_base(n / b, b, maj, len);
 	}
 	if (n % b < 10)
 		ft_putchar_one(n % b + '0');
@@ -59,8 +59,9 @@ void	ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj, size_t *len)
 
 void	ft_putlnbr(long int n, size_t *len)
 {
-	//if ((long long)n == -9223372036854775808)
-	//	return (ft_putstr("-9223372036854775808"));
+
+	if (n < -9223372036854775807)
+		return (ft_putchar_count("-9223372036854775808", 20));
 	if (n < 0)
 	{
 		n = -n;
@@ -76,6 +77,8 @@ void	ft_putlnbr(long int n, size_t *len)
 
 void	ft_putnbr_no_minus(intmax_t n, size_t *len)
 {
+	if (n < -9223372036854775807)
+		return (ft_putchar_count("9223372036854775808", 19));
 	if (n < 0)
 	{
 		n = -n;
