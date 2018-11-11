@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:28:31 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/10 05:32:14 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/11 22:58:00 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	ft_back_w(intmax_t element, pf_flags flags, size_t len)
 	if (flags.precision > (unsigned int)len)
 		diff = (long int)flags.precision - len;
 	tmp = (long int)flags.width - len - diff;
-	if (element >= 0 && flags.check_char & 0x08 && flags.check_char & 0x04 &&
+	if (element > 0 && flags.check_char & 0x08 && flags.check_char & 0x04 &&
 	flags.index_s < 3)
 		tmp--;
 	if ((flags.index_s == 3 || flags.index_s == 4) && flags.check_char & 0x02)
-			tmp--;
+		tmp--;
 	if ((flags.index_s == 7 || flags.index_s == 8) && flags.check_char & 0x02)
 		tmp -= 2;
 	while (tmp > 0)

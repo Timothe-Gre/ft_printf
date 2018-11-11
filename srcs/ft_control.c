@@ -25,8 +25,6 @@ int		ft_control(pf_flags flags, va_list ap)
 		if(flags.check_char & 0x10)
 			character[4].fct_c(element, &flags);
 	}
-	if (flags.check_flags && 0x01)
-		specifier[flags.index_s].fct_s(element, flags);
-		
+	specifier[flags.index_s].fct_s(element, flags);
 	return (0);
 }

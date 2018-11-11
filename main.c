@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <limits.h>
 #include "includes/ft_printf.h"
 
 int		main()
 {
-	printf("@moulitest: %5.d %5.0d|", 0, 0);
-	printf("\n==============\n");
-	ft_printf("@moulitest: %5.d %5.0d|", 0, 0);
-	printf("\n");
+	printf("%.p, %.0p", 0, 0);
+	printf("|\n==============\n");
+	ft_printf("%.p, %.0p", 0, 0);
 }

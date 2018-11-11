@@ -77,8 +77,9 @@ void	print_S(void *element, pf_flags flags)
 	size_t		weight;
 	long int	p;
 
-	str = (wchar_t*)element;
 	i = 0;
+	if (!(str = (wchar_t*)element))
+		return (ft_putchar_count("(null)", 6));
 	if (flags.check_flags & 0x08 && (!(flags.check_char & 0x04)))
 		ft_width_unicode(flags, str);
 	if (flags.check_flags & 0x04)

@@ -24,7 +24,7 @@ typedef	struct		s_flags
 {
 	char			check_flags;
 	unsigned char	index_s;
-	unsigned char	index_m;
+	int		index_m;
 	unsigned int	precision;
 	unsigned int	width;
 	char			w;

@@ -15,12 +15,13 @@
 
 int		ft_check_specifier(pf_flags *flags, char *str)
 {
+	flags->index_s = 0;
 	while (specifier[flags->index_s].flag_s &&
 		*str != specifier[flags->index_s].flag_s)
 	{
 		flags->index_s++;
 	}
-	if (flags->index_s < 14)
+	if (flags->index_s < 15)
 		flags->check_flags = flags->check_flags + 0x01;
 	return (flags->index_s);
 }

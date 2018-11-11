@@ -58,8 +58,10 @@ void		modif_ll(void *element, pf_flags flags)
 		if (ft_write_p_u((unsigned long long int)element, flags, 10))
 			ft_putllnbr_base((unsigned long long int)element, 10, 0, &len);
 	if (flags.index_s == 7)
+{
 		if (ft_write_p_u((unsigned long long int)element, flags, 16))
 			ft_putllnbr_base((unsigned long long int)element, 16, 0, &len);
+}
 	if (flags.index_s == 8)
 		if (ft_write_p_u((unsigned long long int)element, flags, 16))
 			ft_putllnbr_base((unsigned long long int)element, 16, 1, &len);

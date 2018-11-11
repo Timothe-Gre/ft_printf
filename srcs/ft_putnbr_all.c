@@ -61,7 +61,7 @@ void	ft_putlnbr(long int n, size_t *len)
 {
 
 	if (n < -9223372036854775807)
-		return (ft_putchar_count("-9223372036854775808", 20));
+		return (ft_putchar_count("9223372036854775808", 20));
 	if (n < 0)
 	{
 		n = -n;
