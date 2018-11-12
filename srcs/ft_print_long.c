@@ -6,14 +6,14 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:20:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 16:47:25 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/12 16:49:46 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-size_t		ft_len_number_b(unsigned long n, unsigned int b, size_t len)
+static size_t	ft_len_number_b(unsigned long n, unsigned int b, size_t len)
 {
 	while (n >= b)
 	{

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/10 05:16:31 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/12 19:09:54 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	print_s(void *element, pf_flags flags)
 	if (flags.index_m == 1)
 		return (print_S(element, flags));
 	if (!(str = (char*)element))
-			return (ft_putchar_count("(null)", 6));
+			return (ft_putchar_null(flags));
 	if (!(flags.check_char & 0x04))
 		ft_print_width_s(flags, ft_strlen(str));
 	if ((flags.check_flags & 0x04) && flags.precision == 0)
 		return (ft_print_width_s(flags, tmp));
-	if (*str && flags.precision > 0)
+	if (*str && flags.precision > 0 && flags.precision < ft_strlen(str))
 	{
 		while (*str && flags.precision-- > 0)
 			ft_putchar_count(str++, 1);

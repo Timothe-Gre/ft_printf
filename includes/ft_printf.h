@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 14:38:12 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/12 18:14:18 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void				ft_putnbr_no_minus(intmax_t n, size_t *len);
 void				ft_putwchar(wchar_t element);
 void				ft_putchar_count(char *c, size_t len);
 void				ft_putchar_one(char c);
+void 				ft_putchar_null(pf_flags flags);
 void				ft_putwstr(wchar_t *str);
 
 size_t				ft_len_number(intmax_t nb, size_t len, char base);

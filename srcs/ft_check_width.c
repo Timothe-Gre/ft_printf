@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 15:47:49 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/12 19:04:48 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	ft_print_width_s(pf_flags flags, size_t len)
 	long int tmp;
 
 	tmp = 0;
+	// printf("\nici %zu\n", len);
 	if (flags.width < len && flags.width < flags.precision)
 		return ;
 	if (flags.width > 0 && flags.check_flags & 0x04 && flags.precision <= len)

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/09 23:01:08 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/12 18:59:08 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,33 @@ void	ft_putchar_one(char c)
 {
 	write(1, &c, 1);
 	g_ret++;
+}
+
+void 	ft_putchar_null(pf_flags flags)
+{
+	int diff;
+	long int tmp;
+
+	diff = 0;
+	if (flags.check_flags & 0x04 && flags.precision == 0)
+	{
+		diff = 6;
+		tmp = (long int)flags.width;
+	}
+	else if (flags.precision > 0 && flags.precision < 6)
+	{
+		diff = 6 - flags.precision;
+		tmp = (long int)flags.width - (long int)flags.precision;
+	}
+	else
+		tmp = (long int)flags.width - 6;
+	if (!(flags.check_char & 0x04))
+		while (tmp-- > 0)
+			ft_putchar_count(&flags.w, 1);
+	ft_putchar_count("(null)", 6 - diff);
+	if (flags.check_char & 0x04)
+		while (tmp-- > 0)
+			ft_putchar_count(&flags.w, 1);
 }
 
 int			ft_printf(const char *format, ...)
