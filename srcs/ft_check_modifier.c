@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:06 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/11 23:12:27 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/12 14:59:50 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,15 @@ void	ft_check_modifier(pf_flags *flags, char **str)
 	}
 	else if (tmp == 1 && *((*str) + 1) && *((*str) + 1) == 'l')
 	{
-		flags->index_m == -1 ? flags->index_m = 5 : flags->index_m;
+		flags->index_m = 5;
 		flags->check_flags |= 0x02;
 		(*str) += 2;
 	}
 	else if (tmp < 4)
 	{
-		flags->index_m == -1 ? flags->index_m = tmp : flags->index_m;
+		flags->index_m < tmp ? flags->index_m = tmp : flags->index_m;
+		if (flags->index_m == 4)
+			flags->index_m = tmp;
 		flags->check_flags |= 0x02;
 		(*str)++;
 	}

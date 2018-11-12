@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:20:15 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/10 03:44:20 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/12 15:50:23 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ void	charac_sp(void *element, pf_flags *flags)
 
 void	charac_sharp(void *element, pf_flags *flags)
 {
+	if (flags->index_s == 3 && (unsigned int)element == 0)
+		ft_putchar_count("0", 1);
 	if (flags->index_s == 3 && (unsigned int)element > 0)
+		ft_putchar_count("0", 1);
+	if (flags->index_s == 4 && (unsigned long int)element == 0)
 		ft_putchar_count("0", 1);
 	if (flags->index_s == 4 && (unsigned long int)element > 0)
 		ft_putchar_count("0", 1);
@@ -59,7 +63,7 @@ void	charac_minus(void *element, pf_flags *flags)
 void	charac_zero(void *element, pf_flags *flags)
 {
 	(void)element;
-	
+
 	if (flags->check_flags & 0x04 && flags->index_s < 10)
 		return;
 	if (flags->check_char & 0x04)

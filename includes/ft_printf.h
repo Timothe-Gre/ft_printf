@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/10 05:20:04 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/12 14:38:12 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef	struct		s_flags
 {
 	char			check_flags;
 	unsigned char	index_s;
-	int		index_m;
+	int				index_m;
 	unsigned int	precision;
 	unsigned int	width;
 	char			w;
@@ -98,7 +98,7 @@ int					ft_check_specifier(pf_flags *flags, char *str);
 
 void				ft_check_width(pf_flags *flags, char **str);
 void				ft_print_width(intmax_t element, pf_flags flags, int len);
-void				ft_print_width_u(pf_flags flags, int len);
+void				ft_print_width_u(uintmax_t elem, pf_flags flags, int len);
 void				ft_print_width_s(pf_flags flags, size_t len);
 void				ft_back_w(intmax_t element, pf_flags flags, size_t len);
 
