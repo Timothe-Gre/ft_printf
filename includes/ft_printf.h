@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 18:14:18 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/13 21:39:21 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void				charac_sp(void *element, pf_flags *flags);
 void				charac_sharp(void *element, pf_flags *flags);
 void				charac_zero(void *element, pf_flags *flags);
 void				charac_minus(void *element, pf_flags *flags);
+int					ft_found_unicode(va_list ap, const char *fornat, int *num_var);
 
 size_t				ft_strlen(const char *str);
 # endif

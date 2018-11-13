@@ -6,7 +6,7 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/11/09 21:20:39 by ghtouman         ###   ########.fr        #
+#    Updated: 2018/11/13 21:33:21 by tigre            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ SRCS = ft_printf.c		\
 	  ft_putwstr.c			\
 	  ft_charac_handler.c	\
 	  ft_weight_wchar.c		\
-	  ft_print_width.c
+	  ft_print_width.c		\
+	  ft_error_unicode.c
 
 SRCS_PATH = $(addprefix srcs/, $(SRCS))
 
