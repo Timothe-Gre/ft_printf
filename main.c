@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 22:36:11 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/12 19:19:07 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/13 19:29:40 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@
 int		main()
 {
 	setlocale(LC_ALL, "");
-	printf("c'est bon = %C test %d pas bon = %C", 3250, 12, 0x11ffff);
-	// printf("\n======\n");
+	printf("%10l  d|", 191);
+	// printf("%08i", -71);
+	printf("\n======\n");
+	// ft_printf("%08i", -71);
+
+
+			// printf("c'est bon = %C test %d pas bon = %C", 3250, 12, 0x11ffff);
 	// ft_printf("c'est bon = %C  pas bon = %C", 3250, 0x11ffff);
 	return (0);
 }

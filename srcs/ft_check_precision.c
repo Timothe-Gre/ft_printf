@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:59 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 15:52:54 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/13 16:00:52 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ int		ft_write_p(intmax_t element, pf_flags flags, char base)
 	if (element == 0 && flags.check_flags & 0x04 && flags.precision == 0)
 	{
 		if (flags.check_char & 0x04)
+		{
 			ft_print_sign(element, &flags);
+		}
 		if (!(flags.check_char & 0x04))
 		{
 			ft_print_width(element, flags, 0);
@@ -83,10 +85,12 @@ int		ft_write_p(intmax_t element, pf_flags flags, char base)
 		return (0);
 	}
 	len_number = ft_len_number(element, 0, base);
-	if (flags.check_char & 0x01 && element != 0)
+	if (flags.check_char & 0x01 && element != 0 && (!(flags.check_flags & 0x04)))
 		ft_print_sign(element, &flags);
 	if (!(flags.check_char & 0x04))
 		ft_print_width(element, flags, len_number);
+	if (flags.check_char & 0x01 && element != 0 && flags.check_flags & 0x04)
+		ft_print_sign(element, &flags);
 	if (flags.check_char & 0x01 && element == 0)
 		ft_print_sign(element, &flags);
 	if (!(flags.check_char & 0x01))

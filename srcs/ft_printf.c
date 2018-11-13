@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 18:59:08 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/13 20:50:20 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,13 @@ void 	ft_putchar_null(pf_flags flags)
 
 int			ft_printf(const char *format, ...)
 {	va_list		ap;
+	int			num_var;
 
 	g_ret = 0;
+	num_var = 0;
+	va_start(ap, format);
+	ft_found_unicode(ap, format, &num_var);
+	va_end(ap);
 	va_start(ap, format);
 	ft_parse_flags(format, ap);
 	va_end(ap);
