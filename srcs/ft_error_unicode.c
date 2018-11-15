@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:20:32 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/15 18:29:25 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/15 19:22:30 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,17 @@ static int		ft_unicode_error(wchar_t element)
 	return (0);
 }
 
-static int		ft_str_unicode_error(wchar_t *str)
+int		ft_str_unicode_error(wchar_t *str)
 {
 	int			i;
 
-	i = -1;
-	while (str[++i])
+	i = 0;
+	while (str[i])
+	{
 		if (ft_unicode_error(str[i]) == 1)
 			return(1);
+		i++;
+	}
 	return (0);
 }
 
@@ -85,7 +88,7 @@ int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 {
 	int 		i;
 	int			back;
-	
+
 	i = 0;
 	while (format[i])
 	{
@@ -93,7 +96,7 @@ int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 		{
 			while (format[i])
 			{
-				back = (ft_check_if_unicode((char*)format, i, ap)); 
+				back = (ft_check_if_unicode((char*)format, i, ap));
 				if (back == 1)
 					return (1);
 				if (back == 2)

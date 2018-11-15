@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/15 18:50:55 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/15 19:22:27 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void				ft_putchar_count(char *c, size_t len);
 void				ft_putchar_one(char c);
 void 				ft_putchar_null(pf_flags flags);
 void				ft_putwstr(wchar_t *str);
+int					ft_str_unicode_error(wchar_t *str);
+
 
 size_t				ft_len_number(intmax_t nb, size_t len, char base);
 size_t				ft_len_number_u(uintmax_t nb, size_t len, char base);

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:38 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/15 17:42:49 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/15 20:32:58 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_control(pf_flags flags, va_list ap)
 	if (flags.check_flags & 0x01 && flags.index_s < 14)
 		element = va_arg(ap, void*);
 	if (!(flags.check_flags & 0x01) && flags.check_flags & 0x08)
-	{	
+	{
 		while(--flags.width)
 			ft_putchar_one(' ');
 		return (0);
