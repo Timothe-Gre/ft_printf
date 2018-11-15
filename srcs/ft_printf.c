@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/13 21:51:14 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/15 18:48:50 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ int			ft_printf(const char *format, ...)
 	g_ret = 0;
 	num_var = 0;
 	va_start(ap, format);
-	ft_found_unicode(ap, format, &num_var);
-	printf("num_var = %d\n", num_var);
+	if (!(ft_found_unicode(ap, format, &num_var)))
+		num_var = -1;
 	va_end(ap);
 	va_start(ap, format);
-	ft_parse_flags(format, ap);
+	ft_parse_flags(format, ap, num_var);
 	va_end(ap);
 	return (g_ret);
 }

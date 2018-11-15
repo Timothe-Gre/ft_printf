@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/13 21:39:21 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/15 18:50:55 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void				ft_putwstr(wchar_t *str);
 size_t				ft_len_number(intmax_t nb, size_t len, char base);
 size_t				ft_len_number_u(uintmax_t nb, size_t len, char base);
 
-void				ft_parse_flags(const char *format, va_list ap);
+int					ft_parse_flags(const char *format, va_list ap, int num_var);
 void				ft_check_characters(pf_flags *flags, char **str);
 void				ft_check_modifier(pf_flags *flags, char **str);
 void				ft_check_precision(pf_flags *flags, char **str);

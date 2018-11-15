@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:20:32 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/13 21:50:31 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/15 18:29:25 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,8 @@
 
 static int		ft_unicode_error(wchar_t element)
 {
-	if (element >= 55296 && element <= 57343)
-		return (1);
-	if (element > 127 && element <= 2047 && MB_CUR_MAX < 2)
-		return (1);
-	if (element > 2047 && element <= 65535 && MB_CUR_MAX < 3)
-		return (1);
-	if (element > 65535 && element <= 1114111 && MB_CUR_MAX < 4)
-		return (1);
-	if (element > 1114111)
+	if ((element > 255 && MB_CUR_MAX != 4) || element < 0x0 ||
+			(element >= 0xd800 && element <= 0xdfff) || (element > 0x10ffff))
 		return (1);
 	return (0);
 }
@@ -66,13 +59,14 @@ static int		ft_check_if_unicode(char *f, int i, va_list ap)
 
 	j = 0;
 	s = 0;
-	while (specifier[j].flag_s)
+	while (specifier[j].flag_s )
 	{
-		if (specifier[j++].flag_s == f[i])
+		if (specifier[j].flag_s == f[i] && j < 14)
 		{
 			element = va_arg(ap, void*);
 			s = 2;
 		}
+		j++;
 	}
 	if (f[i] == 'C')
 		return (ft_unicode_error((wchar_t)element));
@@ -90,7 +84,8 @@ static int		ft_check_if_unicode(char *f, int i, va_list ap)
 int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 {
 	int 		i;
-
+	int			back;
+	
 	i = 0;
 	while (format[i])
 	{
@@ -98,13 +93,15 @@ int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 		{
 			while (format[i])
 			{
-				if (ft_check_if_unicode((char*)format, i, ap) == 1)
+				back = (ft_check_if_unicode((char*)format, i, ap)); 
+				if (back == 1)
 					return (1);
-				if (ft_check_if_unicode((char*)format, i, ap) == 2)
+				if (back == 2)
 				{
 					(*num_var)++;
 					break;
 				}
+
 				i++;
 			}
 		}
