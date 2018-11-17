@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 17:13:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/09 21:18:49 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/17 20:56:19 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 size_t		ft_weight_wchar(wchar_t c)
 {
 	if (c <= 0x7F)
+		return (1);
+	if (c > 0x7f && c <= 0xff && MB_CUR_MAX != 4)
 		return (1);
 	else if (c <= 0x7FF)
 		return (2);

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:20:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 16:49:46 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/17 22:08:34 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ void	print_p(void *element, pf_flags flags)
 			ft_putchar_count(&flags.w, 1);
 	}
 	ft_putchar_count("0x", 2);
-	if (flags.check_flags & 0x04 && flags.precision > (l))
+	if (flags.check_flags & 0x04 && flags.precision > l)
+	{
 		while (flags.precision-- > l)
 			ft_putchar_count("0", 1);
+	}
 	l = 1;
 	ft_putlnbr_base((unsigned long)element, 16, 0, &l);
 	if (flags.check_flags & 0x08 && flags.width > l && (flags.check_char & 04))
@@ -68,9 +70,12 @@ void	print_O(void *element, pf_flags flags)
 	size_t len;
 
 	len = 1;
-	if (flags.check_char & 0x02 && (unsigned int)element == 0 &&
-	flags.precision == 0)
+	if (flags.check_char & 0x02 && (unsigned long)element == 0 &&
+	flags.precision < 2)
+	{
+		ft_print_width_u((unsigned long)element, flags, len);
 		ft_putchar_one('0');
+	}
 	else if (ft_write_p_u((unsigned long)element, flags, 8))
 		ft_putlnbr_base((unsigned long)element, 8, 0, &len);
 	if (flags.check_char & 0x04)

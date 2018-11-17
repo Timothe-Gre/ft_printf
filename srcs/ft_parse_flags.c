@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:27 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/15 21:33:31 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/17 21:28:27 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap)
 		if (out == *str && !(flags->check_flags & 0x01))
 			break;
 	}
-	if (**str && !(flags->check_flags & 0x01) && 
+	if (**str && !(flags->check_flags & 0x01) &&
 	!(flags->check_flags & 0x08))
 		ft_putchar_count(*str, 1);
 	else
@@ -60,9 +60,11 @@ int				ft_parse_flags(const char *format, va_list ap, int num_var)
 		}
 		else if (num_var == -1)
 			ft_putchar_count(tmp, 1);
-		if (num_var >= 0)
+		else if (num_var >= 0)
+		{
 			if (num_var-- == 0)
 				return (g_ret = -1);
+		}
 		tmp++;
 	}
 	return (0);

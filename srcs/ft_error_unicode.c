@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:20:32 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/15 19:22:30 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/17 21:52:47 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,15 @@ int		ft_str_unicode_error(wchar_t *str)
 	int			i;
 
 	i = 0;
-	while (str[i])
+	if (str)
 	{
-		if (ft_unicode_error(str[i]) == 1)
-			return(1);
-		i++;
+		while (str[i])
+		{
+			if (ft_unicode_error(str[i]) == 1)
+				return(1);
+			i++;
+		}
+		return (0);
 	}
 	return (0);
 }
@@ -104,7 +108,6 @@ int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 					(*num_var)++;
 					break;
 				}
-
 				i++;
 			}
 		}

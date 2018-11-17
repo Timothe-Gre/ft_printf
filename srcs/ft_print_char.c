@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/15 22:11:32 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/17 21:52:31 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,18 @@ void	print_C(void *element, pf_flags flags)
 		ft_width_unicode(flags, gheram);
 	if ((gheram[0] > 255 && MB_CUR_MAX != 4) || gheram[0] < 0x0 ||
 		(gheram[0] >= 0xd800 && gheram[0] <= 0xdfff) || (gheram[0] > 0x10ffff))
+	{
+		g_ret = -1;
 		return ;
+	}
 	else if (gheram[0] > 0x7f && gheram[0] <= 0xff && MB_CUR_MAX != 4)
 		ft_putchar_one(gheram[0]);
 	else
 		ft_putwchar(gheram[0]);
 	if (flags.check_char & 0x04 && flags.check_flags & 0x08)
+	{
 		ft_width_unicode(flags, &gheram[0]);
+	}
 }
 
 void	print_s(void *element, pf_flags flags)
@@ -54,7 +59,7 @@ void	print_s(void *element, pf_flags flags)
 	if (flags.index_m == 1)
 		return (print_S(element, flags));
 	if (!(str = (char*)element))
-			return (ft_putchar_null(flags));
+		return (ft_putchar_null(flags));
 	if (!(flags.check_char & 0x04))
 		ft_print_width_s(flags, ft_strlen(str));
 	if ((flags.check_flags & 0x04) && flags.precision == 0)
@@ -81,7 +86,10 @@ void	print_S(void *element, pf_flags flags)
 
 	i = -1;
 	if (ft_str_unicode_error((wchar_t*)element))
+	{
+		g_ret = -1;
 		return ;
+	}
 	if (!(str = (wchar_t*)element))
 		return (ft_putchar_count("(null)", 6));
 	if (flags.check_flags & 0x08 && (!(flags.check_char & 0x04)))
