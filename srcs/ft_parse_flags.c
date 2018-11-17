@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:27 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/15 18:50:52 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/15 21:33:31 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap)
 {
 	char	*out;
-
 	*flags = (pf_flags){0, 0, -1, 0, 0, ' ', 0};
 	while (!(flags->check_flags & 0x01))
 	{
@@ -24,7 +23,7 @@ static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap)
 		ft_check_width(flags, str);
 		ft_check_precision(flags, str);
 		ft_check_modifier(flags, str);
-		if (*str == '\0')
+		if (**str == '\0')
 			return (1);
 		ft_check_specifier(flags, *str);
 		if (out == *str && !(flags->check_flags & 0x01))

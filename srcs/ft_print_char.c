@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/15 19:45:22 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/15 22:11:32 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	print_C(void *element, pf_flags flags)
 		ft_putchar_one(gheram[0]);
 	else
 		ft_putwchar(gheram[0]);
+	if (flags.check_char & 0x04 && flags.check_flags & 0x08)
+		ft_width_unicode(flags, &gheram[0]);
 }
 
 void	print_s(void *element, pf_flags flags)
