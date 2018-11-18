@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:20:32 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/18 03:41:59 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/18 05:05:01 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int		ft_check_if_unicode(char *f, int i, va_list ap)
 	p = -5;
 	while (specifier[++j].flag_s )
 	{
-		if (specifier[j].flag_s == f[i] && j < 14)
+		if (specifier[j].flag_s == f[i] && j < 15)
 		{
 			element = va_arg(ap, void*);
 			s = 2;

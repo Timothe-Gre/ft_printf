@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:27 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/18 03:51:09 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/18 05:14:32 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap, int *num_var)
 {
-	(void)num_var;
 	char	*out;
 	*flags = (pf_flags){0, 0, -1, 0, 0, ' ', 0};
 	while (!(flags->check_flags & 0x01))
@@ -48,7 +47,11 @@ int				ft_parse_flags(const char *format, va_list ap, int num_var)
 	char		*tmp;
 	pf_flags	flags;
 
-	tmp = (char *)format;
+	if ((tmp = (char*)format) == NULL)
+	{
+		ft_putchar_count("(null)", 6);
+		return (-1);
+	}
 	while (*tmp)
 	{
 		if (*tmp == '%')

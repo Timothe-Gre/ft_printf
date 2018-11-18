@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/17 17:37:44 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/18 05:45:04 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_check_width(pf_flags *flags, char **str)
 	if (**str < '0' || **str > '9')
 		return ;
 	flags->width = 0;
-	while(**str && **str >= '0' && **str <= '9')
+	while(**str >= '0' && **str <= '9')
 	{
 		flags->width = flags->width * 10 + (**str - '0');
 		(*str)++;
