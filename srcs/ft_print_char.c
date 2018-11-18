@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/17 21:52:31 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/18 03:43:05 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_C(void *element, pf_flags flags)
 	gheram[1] = '\0';
 	if (flags.check_flags & 0x08 && (!(flags.check_char & 0x04)))
 		ft_width_unicode(flags, gheram);
-	if ((gheram[0] > 255 && MB_CUR_MAX != 4) || gheram[0] < 0x0 ||
+	if ((gheram[0] >= 256 && MB_CUR_MAX != 4) || gheram[0] < 0x0 ||
 		(gheram[0] >= 0xd800 && gheram[0] <= 0xdfff) || (gheram[0] > 0x10ffff))
 	{
 		g_ret = -1;
@@ -85,7 +85,7 @@ void	print_S(void *element, pf_flags flags)
 	long int	p;
 
 	i = -1;
-	if (ft_str_unicode_error((wchar_t*)element))
+	if (ft_str_unicode_error((wchar_t*)element, flags.precision))
 	{
 		g_ret = -1;
 		return ;

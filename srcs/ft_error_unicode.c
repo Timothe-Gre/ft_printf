@@ -6,53 +6,33 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:20:32 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/17 21:52:47 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/18 03:41:59 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-static int		ft_unicode_error(wchar_t element)
+static void		calc_p(char *str, int i, int *p)
 {
-	if ((element > 255 && MB_CUR_MAX != 4) || element < 0x0 ||
-			(element >= 0xd800 && element <= 0xdfff) || (element > 0x10ffff))
-		return (1);
-	return (0);
+	*p = 0;
+	while(str[i] >= '0' && str[i] <= '9')
+		*p = *p * 10 + (str[i++] - '0');
 }
 
-int		ft_str_unicode_error(wchar_t *str)
-{
-	int			i;
-
-	i = 0;
-	if (str)
-	{
-		while (str[i])
-		{
-			if (ft_unicode_error(str[i]) == 1)
-				return(1);
-			i++;
-		}
-		return (0);
-	}
-	return (0);
-}
-
-static int		back(char *format, int i)
+static int		back(char *format, int i, int *p)
 {
 	int 		back;
 
 	back = 0;
 	while (format[i] != '%')
 	{
+		if (format[i] == '.')
+			calc_p(format + 1, i, p);
 		if (format[i] == 'l' && format[i - 1] != 'l')
 			back = 1;
-		if (format[i] == 'l' && format[i - 1] == 'l')
-		{
+		if (format[i] == 'l' && format[i - 1] == 'l' && back != 1)
 			back = 0;
-			break ;
-		}
 		i--;
 	}
 	return (back);
@@ -63,28 +43,27 @@ static int		ft_check_if_unicode(char *f, int i, va_list ap)
 	void		*element;
 	int			j;
 	int 		s;
+	int			p;
 
-	j = 0;
+	j = -1;
 	s = 0;
-	while (specifier[j].flag_s )
+	p = -5;
+	while (specifier[++j].flag_s )
 	{
 		if (specifier[j].flag_s == f[i] && j < 14)
 		{
 			element = va_arg(ap, void*);
 			s = 2;
 		}
-		j++;
 	}
+	if (f[i] == 'c' && (back(f, i, &p) == 1))
+			return (ft_unicode_error((wchar_t)element));
+	if ((f[i] == 's') && (back(f, i, &p) == 1))
+			return (ft_str_unicode_error((wchar_t*)element, p));
 	if (f[i] == 'C')
 		return (ft_unicode_error((wchar_t)element));
 	if (f[i] == 'S')
-		return (ft_str_unicode_error((wchar_t*)element));
-	if (f[i] == 'c')
-		if(back(f, i) == 1)
-			return (ft_unicode_error((wchar_t)element));
-	if (f[i] == 's')
-		if(back(f, i) == 1)
-			return (ft_str_unicode_error((wchar_t*)element));
+		return (ft_str_unicode_error((wchar_t*)element, p));
 	return (s);
 }
 
@@ -98,6 +77,7 @@ int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 	{
 		if (format[i] == '%')
 		{
+			i++;
 			while (format[i])
 			{
 				back = (ft_check_if_unicode((char*)format, i, ap));

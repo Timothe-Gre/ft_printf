@@ -6,14 +6,15 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:27 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/17 21:28:27 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/18 03:51:09 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap)
+static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap, int *num_var)
 {
+	(void)num_var;
 	char	*out;
 	*flags = (pf_flags){0, 0, -1, 0, 0, ' ', 0};
 	while (!(flags->check_flags & 0x01))
@@ -35,6 +36,7 @@ static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap)
 	else
 	{
 		ft_control(*flags, ap);
+		*num_var != -2 ? (*num_var)-- : *num_var;
 		if (!(flags->check_flags & 0x01) && flags->check_flags & 0x08)
 			ft_putchar_one(**str);
 	}
@@ -55,15 +57,16 @@ int				ft_parse_flags(const char *format, va_list ap, int num_var)
 			if (*tmp == '%')
 				ft_putchar_count("%", 1);
 			else
-				if (ft_flag_checker(&tmp, &flags, ap))
+				if (ft_flag_checker(&tmp, &flags, ap, &num_var))
 					return (0);
 		}
-		else if (num_var == -1)
+		else if (num_var == -2)
 			ft_putchar_count(tmp, 1);
-		else if (num_var >= 0)
+		else if (num_var >= -1)
 		{
-			if (num_var-- == 0)
+			if (num_var <= 0)
 				return (g_ret = -1);
+			ft_putchar_one(*tmp);
 		}
 		tmp++;
 	}
