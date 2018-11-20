@@ -6,15 +6,16 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:27 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/18 05:14:32 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/20 18:56:04 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap, int *num_var)
+static int			ft_comb(char **str, pf_flags *flags)
 {
 	char	*out;
+
 	*flags = (pf_flags){0, 0, -1, 0, 0, ' ', 0};
 	while (!(flags->check_flags & 0x01))
 	{
@@ -29,15 +30,27 @@ static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap, int *num_v
 		if (out == *str && !(flags->check_flags & 0x01))
 			break;
 	}
+	return (0);
+}
+
+static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap, int *num_var)
+{
+	if (ft_comb(str, flags))
+		return (1);
 	if (**str && !(flags->check_flags & 0x01) &&
-	!(flags->check_flags & 0x08))
+			!(flags->check_flags & 0x08))
 		ft_putchar_count(*str, 1);
 	else
 	{
 		ft_control(*flags, ap);
 		*num_var != -2 ? (*num_var)-- : *num_var;
 		if (!(flags->check_flags & 0x01) && flags->check_flags & 0x08)
+		{	
 			ft_putchar_one(**str);
+			if (flags->check_char & 0x04 && flags->check_flags & 0x08)
+				while(--flags->width)
+					ft_putchar_one(flags->w);
+		}
 	}
 	return (0);
 }

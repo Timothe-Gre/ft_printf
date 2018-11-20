@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 16:11:23 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/17 20:43:05 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/20 17:49:20 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		modif_j(void *element, pf_flags flags)
 	len = 1;
 	if (flags.index_s == 3)
 	{
-		if ((uintmax_t)element == 0 && flags.precision == 0 &&
+		if ((size_t)element == 0 && flags.precision == 0 &&
 		flags.check_char & 0x02)
 			ft_putchar_one('0');
 		else if (ft_write_p_u((size_t)element, flags, 8))
