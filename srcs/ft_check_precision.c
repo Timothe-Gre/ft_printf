@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:59 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/18 05:45:23 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/21 13:54:59 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,13 @@ int		ft_write_p(intmax_t element, pf_flags flags, char base)
 {
 	int len_number;
 
+	if (flags.check_char & 0x08 && element == 0 && !(flags.check_flags & 0x04)
+		&& flags.check_char & 0x01)
+	{
+		ft_print_sign(element, &flags);
+		ft_print_width(element, flags, 0);
+		return (0);
+	}
 	if (element == 0 && flags.check_flags & 0x04 && flags.precision == 0)
 	{
 		if (flags.check_char & 0x04)

@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/20 18:51:55 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/21 16:18:51 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	ft_print_width(intmax_t element, pf_flags flags, int len)
 	if (element >= 0 && flags.check_char & 0x08)
 		flags.width--;
 	if (element < 0 && flags.check_char & 0x01 && flags.check_flags & 0x04)
+		flags.width--;
+	if (element < 0 && len < (long int)flags.precision + 1)
 		flags.width--;
 	if (flags.precision > (unsigned int)len)
 		tmp = flags.precision - len;

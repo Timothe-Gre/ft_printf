@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 22:36:11 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/20 19:02:10 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/21 16:09:33 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@ int		main()
 	int a = 0;
 
 	setlocale(LC_ALL, "en_US.UTF-8");
-	
-	printf("{%5.S}", 0);
-	printf("\n");
-	ft_printf("{%5.S}", 0);
-
-	printf("\n\n");
-/*	ret = printf("{%30S}", L"我是一只猫。");
-	printf("\nret =    %d\n", ret);
-	printf("\n");
-	ft_ret = printf("{%30S}", L"我是一只猫。");
-	printf("\nft_ret = %d\n", ft_ret);*/
+	printf("%5.s|\n", "42");
+	ft_printf("%5.s|\n", "42");
 }
