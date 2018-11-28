@@ -6,13 +6,13 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:30:33 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/17 21:24:55 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/28 14:44:32 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void 	ft_putwchar(wchar_t element)
+void	ft_putwchar(wchar_t element)
 {
 	if (element > 0x7f && element <= 0xff && MB_CUR_MAX != 4)
 		ft_putchar_one(element);

@@ -6,13 +6,13 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 16:11:23 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/20 17:49:20 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		modif_j(void *element, pf_flags flags)
+void		modif_j(void *element, t_flags flags)
 {
 	size_t len;
 
@@ -41,7 +41,7 @@ void		modif_j(void *element, pf_flags flags)
 		ft_back_w((size_t)element, flags, len);
 }
 
-void		modif_z(void *element, pf_flags flags)
+void		modif_z(void *element, t_flags flags)
 {
 	size_t len;
 

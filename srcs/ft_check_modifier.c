@@ -6,19 +6,19 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:06 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/18 05:45:53 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 15:24:18 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-void	ft_check_modifier(pf_flags *flags, char **str)
+void	ft_check_modifier(t_flags *flags, char **str)
 {
 	int	tmp;
 
 	tmp = 0;
-	while (modifier[tmp].flag_m && **str != modifier[tmp].flag_m)
+	while (g_modifier[tmp].flag_m && **str != g_modifier[tmp].flag_m)
 		tmp++;
 	if (tmp == 0 && *((*str) + 1) && *((*str) + 1) == 'h')
 	{

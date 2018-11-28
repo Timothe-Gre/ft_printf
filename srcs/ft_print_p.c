@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_p.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 16:20:58 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/20 16:28:45 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,17 @@ static size_t	ft_len_number_b(unsigned long n, unsigned int b, size_t len)
 	return (len);
 }
 
-static void		print_width_p(long int tmp, pf_flags flags, size_t l)
+static void		print_width_p(long int tmp, t_flags flags, size_t l)
 {
-
 	tmp = (long int)flags.width - tmp - l - 2;
-	while(tmp-- > 0)
+	while (tmp-- > 0)
 		ft_putchar_count(&flags.w, 1);
 }
 
-void			print_p(void *element, pf_flags flags)
+void			print_p(void *element, t_flags flags)
 {
-	long int tmp;
-	size_t l;
+	long int	tmp;
+	size_t		l;
 
 	l = ft_len_number_b((unsigned long)element, 16, 1);
 	tmp = 0;

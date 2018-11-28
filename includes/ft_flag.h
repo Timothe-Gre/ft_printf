@@ -6,35 +6,34 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/24 14:23:36 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 14:58:07 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:22:39 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FLAG_H
 # define FT_FLAG_H
 
-
-static t_specifier	specifier[] =
+static t_specifier g_specifier[] =
 {
 	{'d', &print_d_i},
 	{'i', &print_d_i},
-	{'D', &print_D},
+	{'D', &print_ld},
 	{'o', &print_o},
-	{'O', &print_O},
+	{'O', &print_lo},
 	{'u', &print_u},
-	{'U', &print_U},
+	{'U', &print_lu},
 	{'x', &print_x},
-	{'X', &print_X},
+	{'X', &print_xx},
 	{'p', &print_p},
 	{'c', &print_c},
-	{'C', &print_C},
+	{'C', &print_lc},
 	{'s', &print_s},
-	{'S', &print_S},
+	{'S', &print_ls},
 	{'%', &print_percent},
 	{'\0', NULL}
 };
 
-static t_modifier	modifier[] =
+static t_modifier g_modifier[] =
 {
 	{'h', &modif_h},
 	{'l', &modif_l},
@@ -45,7 +44,7 @@ static t_modifier	modifier[] =
 	{'\0', NULL}
 };
 
-static t_character	character[] =
+static t_character g_character[] =
 {
 	{'0', &charac_zero},
 	{'#', &charac_sharp},

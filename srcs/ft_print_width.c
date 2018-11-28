@@ -6,13 +6,13 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 13:28:31 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/12 12:15:17 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_back_w(intmax_t element, pf_flags flags, size_t len)
+void	ft_back_w(intmax_t element, t_flags flags, size_t len)
 {
 	long int tmp;
 	long int diff;

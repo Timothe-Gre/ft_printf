@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:11 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/18 05:44:20 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 15:23:19 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ int		index_byte(int nb)
 	if (nb == 0)
 		return (1);
 	if (nb > 0)
-		return((index_byte(nb - 1)) * 2);
+		return ((index_byte(nb - 1)) * 2);
 	else
 		return (0);
 }
 
-void	ft_check_characters(pf_flags *flags, char **str)
+void	ft_check_characters(t_flags *flags, char **str)
 {
 	int		i;
 
 	i = 0;
-	while (character[i].flag_c)
+	while (g_character[i].flag_c)
 	{
-		if (character[i].flag_c == **str)
+		if (g_character[i].flag_c == **str)
 		{
 			flags->check_char |= index_byte(i);
 			i = 0;

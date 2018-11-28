@@ -6,29 +6,29 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/18 03:47:53 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <string.h>
 
-void	ft_putchar_count(char *c, size_t len)
+void			ft_putchar_count(char *c, size_t len)
 {
 	write(1, c, len);
 	g_ret += len;
 }
 
-void	ft_putchar_one(char c)
+void			ft_putchar_one(char c)
 {
 	write(1, &c, 1);
 	g_ret++;
 }
 
-void 	ft_putchar_null(pf_flags flags)
+void			ft_putchar_null(t_flags flags)
 {
-	int diff;
-	long int tmp;
+	int			diff;
+	long int	tmp;
 
 	diff = 0;
 	if (flags.check_flags & 0x04 && flags.precision == 0)
@@ -52,12 +52,18 @@ void 	ft_putchar_null(pf_flags flags)
 			ft_putchar_count(&flags.w, 1);
 }
 
-int			ft_printf(const char *format, ...)
-{	va_list		ap;
+int				ft_printf(const char *format, ...)
+{
+	va_list		ap;
 	int			num_var;
 
 	g_ret = 0;
 	num_var = 0;
+	if (format == NULL)
+	{
+		ft_putchar_count("(null)", 6);
+		return (-1);
+	}
 	va_start(ap, format);
 	if (!(ft_found_unicode(ap, format, &num_var)))
 		num_var = -2;

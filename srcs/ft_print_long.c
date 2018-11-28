@@ -6,16 +6,16 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:20:00 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/20 16:29:35 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 15:25:35 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-void	print_U(void *element, pf_flags flags)
+void		print_lu(void *element, t_flags flags)
 {
-	size_t len;
+	size_t	len;
 
 	len = 1;
 	if (ft_write_p_u((unsigned long)element, flags, 10))
@@ -24,9 +24,9 @@ void	print_U(void *element, pf_flags flags)
 		ft_back_w((unsigned long)element, flags, len);
 }
 
-void	print_O(void *element, pf_flags flags)
+void		print_lo(void *element, t_flags flags)
 {
-	size_t len;
+	size_t	len;
 
 	len = 1;
 	if (flags.check_char & 0x02 && (unsigned long)element == 0 &&

@@ -6,13 +6,13 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 17:13:55 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/18 03:41:56 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 14:44:01 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_unicode_error(wchar_t element)
+int			ft_unicode_error(wchar_t element)
 {
 	if ((element > 255 && MB_CUR_MAX != 4) || element < 0x0 ||
 			(element >= 0xd800 && element <= 0xdfff) || (element > 0x10ffff))
@@ -20,12 +20,11 @@ int		ft_unicode_error(wchar_t element)
 	return (2);
 }
 
-int		ft_str_unicode_error(wchar_t *str, int p)
+int			ft_str_unicode_error(wchar_t *str, int p)
 {
-	int			i;
+	int		i;
 
 	i = 0;
-
 	if (str)
 	{
 		while (str[i])
@@ -36,8 +35,8 @@ int		ft_str_unicode_error(wchar_t *str, int p)
 				if (p <= 0 && p > -5)
 					return (0);
 			}
-			if(ft_unicode_error(str[i]) == 1)
-				return(1);
+			if (ft_unicode_error(str[i]) == 1)
+				return (1);
 			i++;
 		}
 		return (0);
@@ -62,8 +61,8 @@ size_t		ft_weight_wchar(wchar_t c)
 
 size_t		ft_strwlen(wchar_t *str)
 {
-	size_t len;
-	int i;
+	size_t	len;
+	int		i;
 
 	len = 0;
 	i = 0;
@@ -74,7 +73,7 @@ size_t		ft_strwlen(wchar_t *str)
 
 size_t		ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])

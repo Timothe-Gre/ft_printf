@@ -6,17 +6,17 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:27 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/20 18:56:04 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int			ft_comb(char **str, pf_flags *flags)
+static int		ft_comb(char **str, t_flags *flags)
 {
-	char	*out;
+	char		*out;
 
-	*flags = (pf_flags){0, 0, -1, 0, 0, ' ', 0};
+	*flags = (t_flags){0, 0, -1, 0, 0, ' ', 0};
 	while (!(flags->check_flags & 0x01))
 	{
 		out = *str;
@@ -28,27 +28,26 @@ static int			ft_comb(char **str, pf_flags *flags)
 			return (1);
 		ft_check_specifier(flags, *str);
 		if (out == *str && !(flags->check_flags & 0x01))
-			break;
+			break ;
 	}
 	return (0);
 }
 
-static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap, int *num_var)
+static int		ft_flag_checker(char **str, t_flags *flags, va_list ap, int *n)
 {
 	if (ft_comb(str, flags))
 		return (1);
-	if (**str && !(flags->check_flags & 0x01) &&
-			!(flags->check_flags & 0x08))
+	if (**str && !(flags->check_flags & 0x01) && !(flags->check_flags & 0x08))
 		ft_putchar_count(*str, 1);
 	else
 	{
 		ft_control(*flags, ap);
-		*num_var != -2 ? (*num_var)-- : *num_var;
+		*n != -2 ? (*n)-- : *n;
 		if (!(flags->check_flags & 0x01) && flags->check_flags & 0x08)
-		{	
+		{
 			ft_putchar_one(**str);
 			if (flags->check_char & 0x04 && flags->check_flags & 0x08)
-				while(--flags->width)
+				while (--flags->width)
 					ft_putchar_one(flags->w);
 		}
 	}
@@ -58,13 +57,9 @@ static int			ft_flag_checker(char **str, pf_flags *flags, va_list ap, int *num_v
 int				ft_parse_flags(const char *format, va_list ap, int num_var)
 {
 	char		*tmp;
-	pf_flags	flags;
+	t_flags	flags;
 
-	if ((tmp = (char*)format) == NULL)
-	{
-		ft_putchar_count("(null)", 6);
-		return (-1);
-	}
+	tmp = (char*)format;
 	while (*tmp)
 	{
 		if (*tmp == '%')
@@ -72,9 +67,8 @@ int				ft_parse_flags(const char *format, va_list ap, int num_var)
 			tmp++;
 			if (*tmp == '%')
 				ft_putchar_count("%", 1);
-			else
-				if (ft_flag_checker(&tmp, &flags, ap, &num_var))
-					return (0);
+			else if (ft_flag_checker(&tmp, &flags, ap, &num_var))
+				return (0);
 		}
 		else if (num_var == -2)
 			ft_putchar_count(tmp, 1);

@@ -6,21 +6,21 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:53 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/21 13:19:49 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:25:27 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-void	print_d_i(void *element, pf_flags flags)
+void		print_d_i(void *element, t_flags flags)
 {
-	size_t len;
+	size_t	len;
 
 	len = 1;
 	if (flags.check_flags & 0x02)
 	{
-		modifier[flags.index_m].fct_m(element, flags);
+		g_modifier[flags.index_m].fct_m(element, flags);
 		return ;
 	}
 	if (ft_write_p((int)element, flags, 10))
@@ -29,9 +29,9 @@ void	print_d_i(void *element, pf_flags flags)
 		ft_back_w((int)element, flags, len);
 }
 
-void	print_D(void *element, pf_flags flags)
+void		print_ld(void *element, t_flags flags)
 {
-	size_t len;
+	size_t	len;
 
 	len = 1;
 	if (ft_write_p((long int)element, flags, 10))

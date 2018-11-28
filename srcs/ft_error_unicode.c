@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:20:32 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/18 05:05:01 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/28 15:26:21 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 static void		calc_p(char *str, int i, int *p)
 {
 	*p = 0;
-	while(str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 		*p = *p * 10 + (str[i++] - '0');
 }
 
 static int		back(char *format, int i, int *p)
 {
-	int 		back;
+	int			back;
 
 	back = 0;
 	while (format[i] != '%')
@@ -42,24 +42,24 @@ static int		ft_check_if_unicode(char *f, int i, va_list ap)
 {
 	void		*element;
 	int			j;
-	int 		s;
+	int			s;
 	int			p;
 
 	j = -1;
 	s = 0;
 	p = -5;
-	while (specifier[++j].flag_s )
+	while (g_specifier[++j].flag_s)
 	{
-		if (specifier[j].flag_s == f[i] && j < 15)
+		if (g_specifier[j].flag_s == f[i] && j < 15)
 		{
 			element = va_arg(ap, void*);
 			s = 2;
 		}
 	}
 	if (f[i] == 'c' && (back(f, i, &p) == 1))
-			return (ft_unicode_error((wchar_t)element));
+		return (ft_unicode_error((wchar_t)element));
 	if ((f[i] == 's') && (back(f, i, &p) == 1))
-			return (ft_str_unicode_error((wchar_t*)element, p));
+		return (ft_str_unicode_error((wchar_t*)element, p));
 	if (f[i] == 'C')
 		return (ft_unicode_error((wchar_t)element));
 	if (f[i] == 'S')
@@ -69,7 +69,7 @@ static int		ft_check_if_unicode(char *f, int i, va_list ap)
 
 int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 {
-	int 		i;
+	int			i;
 	int			back;
 
 	i = 0;
@@ -86,7 +86,7 @@ int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 				if (back == 2)
 				{
 					(*num_var)++;
-					break;
+					break ;
 				}
 				i++;
 			}

@@ -6,18 +6,18 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/21 16:18:51 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_check_width(pf_flags *flags, char **str)
+void	ft_check_width(t_flags *flags, char **str)
 {
 	if (**str < '0' || **str > '9')
 		return ;
 	flags->width = 0;
-	while(**str >= '0' && **str <= '9')
+	while (**str >= '0' && **str <= '9')
 	{
 		flags->width = flags->width * 10 + (**str - '0');
 		(*str)++;
@@ -27,7 +27,7 @@ void	ft_check_width(pf_flags *flags, char **str)
 		(*str)++;
 }
 
-void	ft_print_width_u(uintmax_t elem, pf_flags flags, int len)
+void	ft_print_width_u(uintmax_t elem, t_flags flags, int len)
 {
 	long int tmp;
 
@@ -44,20 +44,18 @@ void	ft_print_width_u(uintmax_t elem, pf_flags flags, int len)
 		tmp = flags.precision - len;
 	if (flags.width > 0)
 		tmp = (long int)flags.width - len - tmp;
-	while(tmp > 0)
+	while (tmp > 0)
 	{
 		ft_putchar_count(&flags.w, 1);
 		tmp--;
 	}
 }
 
-
-void	ft_print_width(intmax_t element, pf_flags flags, int len)
+void	ft_print_width(intmax_t element, t_flags flags, int len)
 {
 	long int tmp;
 
 	tmp = 0;
-
 	if (flags.width <= flags.precision)
 		return ;
 	if (element >= 0 && flags.check_char & 0x08)
@@ -70,14 +68,14 @@ void	ft_print_width(intmax_t element, pf_flags flags, int len)
 		tmp = flags.precision - len;
 	if (flags.width > 0)
 		tmp = (long int)flags.width - len - tmp;
-	while(tmp > 0)
+	while (tmp > 0)
 	{
 		ft_putchar_count(&flags.w, 1);
 		tmp--;
 	}
 }
 
-void	ft_print_width_s(pf_flags flags, size_t len)
+void	ft_print_width_s(t_flags flags, size_t len)
 {
 	long int tmp;
 
@@ -97,7 +95,7 @@ void	ft_print_width_s(pf_flags flags, size_t len)
 	}
 }
 
-void	ft_width_unicode(pf_flags flags, wchar_t *str)
+void	ft_width_unicode(t_flags flags, wchar_t *str)
 {
 	int		weight;
 
@@ -111,16 +109,16 @@ void	ft_width_unicode(pf_flags flags, wchar_t *str)
 		if ((unsigned int)weight > flags.precision)
 			weight -= ft_weight_wchar(*(--str));
 		flags.width -= weight;
-		while(flags.width--)
+		while (flags.width--)
 			ft_putchar_count(&flags.w, 1);
-		return;
+		return ;
 	}
 	while (*str)
 		weight += ft_weight_wchar(*(str++));
 	if ((unsigned int)weight < flags.width)
 	{
 		flags.width -= weight;
-		while(flags.width--)
+		while (flags.width--)
 			ft_putchar_count(&flags.w, 1);
 	}
 }

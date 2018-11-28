@@ -6,17 +6,17 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:19:37 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/21 16:18:45 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_c(void *element, pf_flags flags)
+void				print_c(void *element, t_flags flags)
 {
 	if (flags.index_m == 1)
 	{
-		print_C(element, flags);
+		print_lc(element, flags);
 		return ;
 	}
 	if (!(flags.check_char & 0x04))
@@ -26,9 +26,9 @@ void	print_c(void *element, pf_flags flags)
 		ft_print_width_s(flags, 1);
 }
 
-void	print_C(void *element, pf_flags flags)
+void				print_lc(void *element, t_flags flags)
 {
-	wchar_t gheram[2];
+	wchar_t			gheram[2];
 
 	gheram[0] = (wchar_t)element;
 	gheram[1] = '\0';
@@ -50,14 +50,14 @@ void	print_C(void *element, pf_flags flags)
 	}
 }
 
-void	print_s(void *element, pf_flags flags)
+void				print_s(void *element, t_flags flags)
 {
-	char *str;
-	unsigned int tmp;
+	char			*str;
+	unsigned int	tmp;
 
 	tmp = flags.precision;
 	if (flags.index_m == 1)
-		return (print_S(element, flags));
+		return (print_ls(element, flags));
 	if (!(str = (char*)element))
 		return (ft_putchar_null(flags));
 	if (!(flags.check_char & 0x04))
@@ -77,12 +77,12 @@ void	print_s(void *element, pf_flags flags)
 		ft_print_width_s(flags, ft_strlen(str));
 }
 
-void	print_S(void *element, pf_flags flags)
+void				print_ls(void *element, t_flags flags)
 {
-	wchar_t		*str;
-	size_t		i;
-	size_t		weight;
-	long int	p;
+	wchar_t			*str;
+	size_t			i;
+	size_t			weight;
+	long int		p;
 
 	i = -1;
 	if (ft_str_unicode_error((wchar_t*)element, flags.precision))
@@ -110,7 +110,7 @@ void	print_S(void *element, pf_flags flags)
 		ft_width_unicode(flags, str);
 }
 
-void	print_percent(void *element, pf_flags flags)
+void				print_percent(void *element, t_flags flags)
 {
 	(void)element;
 	(void)flags;
