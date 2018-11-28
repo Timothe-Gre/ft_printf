@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 16:11:32 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/28 18:06:28 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,8 @@ void		modif_ll(void *element, t_flags flags)
 		if (ft_write_p_u((unsigned long long int)element, flags, 10))
 			ft_putllnbr_base((unsigned long long int)element, 10, 0, &len);
 	if (flags.index_s == 7)
-	{
 		if (ft_write_p_u((unsigned long long int)element, flags, 16))
 			ft_putllnbr_base((unsigned long long int)element, 16, 0, &len);
-	}
 	if (flags.index_s == 8)
 		if (ft_write_p_u((unsigned long long int)element, flags, 16))
 			ft_putllnbr_base((unsigned long long int)element, 16, 1, &len);

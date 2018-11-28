@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:35:22 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int					ft_check_specifier(t_flags *flags, char *str);
 
 void				ft_check_width(t_flags *flags, char **str);
 void				ft_print_width(intmax_t element, t_flags flags, int len);
-void				ft_print_width_u(uintmax_t elem, t_flags flags, int len);
+int					ft_print_width_u(uintmax_t elem, t_flags flags, int len);
 void				ft_print_width_s(t_flags flags, size_t len);
 void				ft_back_w(intmax_t element, t_flags flags, size_t len);
 
@@ -120,4 +120,5 @@ void				charac_zero(void *element, t_flags *flags);
 void				charac_minus(void *element, t_flags *flags);
 int					ft_found_unicode
 					(va_list ap, const char *fornat, int *num_var);
+
 #endif
