@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:51 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/28 15:24:35 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/29 20:13:04 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ int		ft_check_specifier(t_flags *flags, char *str)
 	while (g_specifier[flags->index_s].flag_s &&
 		*str != g_specifier[flags->index_s].flag_s)
 		flags->index_s++;
-	if (flags->index_s < 15)
+	if (*str == 'f')
+	{
+		flags->check_flags = flags->check_flags + 0x01;
+		return (flags->index_s = 20);
+	}
+	if (flags->index_s < 14)
 		flags->check_flags = flags->check_flags + 0x01;
 	return (flags->index_s);
 }

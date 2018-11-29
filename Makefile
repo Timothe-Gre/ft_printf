@@ -6,7 +6,7 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/11/29 14:31:47 by ghtouman         ###   ########.fr        #
+#    Updated: 2018/11/29 22:18:39 by ghtouman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRCS = ft_printf.c			\
 	  ft_print_int.c		\
 	  ft_print_long.c		\
 	  ft_print_p.c			\
+	  ft_float.c			\
+	  ft_print_float.c		\
 	  ft_print_unsigned_int.c\
 	  modif_h_hh.c			\
 	  modif_l_ll.c			\

@@ -6,7 +6,7 @@
 /*   By: tigre <tigre@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:20:15 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/28 15:19:57 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/29 22:14:58 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	charac_plus_sign(void *element, t_flags *flags)
 
 void	charac_sp(void *element, t_flags *flags)
 {
-	if (flags->index_s < 2 && (int)element >= 0 && !(flags->check_char & 0x08))
+	if ((flags->index_s < 2 || flags->index_s == 20)
+	&& (int)element >= 0 && !(flags->check_char & 0x08))
 	{
 		ft_putchar_count(" ", 1);
 		if (flags->width > 0)
