@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/28 17:35:22 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/29 15:05:58 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void				print_lc(void *element, t_flags flags);
 void				print_s(void *element, t_flags flags);
 void				print_ls(void *element, t_flags flags);
 void				print_percent(void *element, t_flags flags);
+
+void				print_f(void *element, t_flags flags);
 
 void				modif_h(void *element, t_flags flags);
 void				modif_hh(void *element, t_flags flags);

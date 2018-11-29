@@ -6,7 +6,7 @@
 #    By: tigre <tigre@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 00:36:32 by tigre             #+#    #+#              #
-#    Updated: 2018/11/28 17:39:57 by tigre            ###   ########.fr        #
+#    Updated: 2018/11/29 14:31:47 by ghtouman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_printf.c		\
+SRCS = ft_printf.c			\
 	  ft_parse_flags.c		\
 	  ft_check_characters.c	\
 	  ft_check_width.c		\
