@@ -6,22 +6,67 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:44:35 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/30 11:39:10 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/30 17:37:48 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-//
-// void 	ft_putnbr_long_f(long double n, t_flags flags, size_t *len)
-// {
-//
-// }
 
-void 	ft_putnbr_f(double n, t_flags flags, size_t *len)
+int		power(int n, int p)
 {
-	(void)len;
-	(void)flags;
-	(void)n;
+	int		ret;
 
-	// printf("%f\n", n);
+	ret = 1;
+	while (p--)
+		ret *= n;
+
+	return (ret);
+}
+
+void		ft_putfloat(long double f, unsigned int p)
+{
+	long	n;
+
+	if (f < 0)
+	{
+		ft_putchar('-');
+		f = -f;
+	}
+	n = (long)f;
+	if (p == 0 && (f - n >= 0.5))
+		n++;
+	ft_putlnbr(n);
+	f -= n;
+	if (p && f > 0)
+	{
+		ft_putchar('.');
+		f = (f * power(10, p));
+		n = (long)f;
+		f - n >= 0.5 ? n++ : n;
+		ft_putlnbr(n);
+	}
+}
+
+void	ft_putfloat(double f, unsigned int p)
+{
+	long	n;
+
+	if (f < 0)
+	{
+		ft_putchar('-');
+		f = -f;
+	}
+	n = (long)f;
+	if (p == 0 && (f - n >= 0.5))
+		n++;
+	ft_putlnbr(n);
+	f -= n;
+	if (p && f > 0)
+	{
+		ft_putchar('.');
+		f = (f * power(10, p));
+		n = (long)f;
+		f - n >= 0.5 ? n++ : n;
+		ft_putlnbr(n);
+	}
 }
