@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 18:22:02 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/28 14:54:20 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/30 14:23:01 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_putllnbr_base(uintmax_t n, uintmax_t b, char maj, size_t *len)
 void	ft_putlnbr(long int n, size_t *len)
 {
 	if (n < -9223372036854775807)
-		return (ft_putchar_count("9223372036854775808", 20));
+		return (ft_putchar_count("9223372036854775808", 19));
 	if (n < 0)
 	{
 		n = -n;

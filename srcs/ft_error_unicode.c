@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 16:20:32 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/28 15:26:21 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/30 14:19:01 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int				ft_found_unicode(va_list ap, const char *format, int *num_var)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '%')
+				i++;
 			while (format[i])
 			{
 				back = (ft_check_if_unicode((char*)format, i, ap));

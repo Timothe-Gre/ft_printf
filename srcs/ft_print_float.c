@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:44:35 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/29 22:18:02 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/11/30 11:39:10 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ void 	ft_putnbr_f(double n, t_flags flags, size_t *len)
 {
 	(void)len;
 	(void)flags;
-	printf("%f\n", n);
+	(void)n;
+
+	// printf("%f\n", n);
 }

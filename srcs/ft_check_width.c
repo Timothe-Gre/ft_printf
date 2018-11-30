@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:44 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/28 17:19:16 by tigre            ###   ########.fr       */
+/*   Updated: 2018/11/30 14:24:15 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	ft_print_width_s(t_flags flags, size_t len)
 		tmp = (long int)flags.width - (long int)flags.precision;
 	else
 		tmp = (long int)flags.width - len;
-	if (flags.check_flags & 0x04)
+	if (flags.check_flags & 0x04 && flags.index_s != 12)
 		flags.precision == 0 ? tmp-- : tmp;
 	while (tmp > 0)
 	{
