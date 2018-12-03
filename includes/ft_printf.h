@@ -6,7 +6,7 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:20 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/29 22:18:59 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/12/03 15:31:44 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void				print_percent(void *element, t_flags flags);
 
 void				print_f(double element, t_flags flags);
 void				print_lf(long double element, t_flags flags);
-void 				ft_putnbr_f(double n, t_flags flags, size_t *len);
+void 				ft_putfloat(double f, size_t *len, unsigned int p);
+void 				ft_putlfloat(long double f, size_t *len, unsigned int p);
 
 void				modif_h(void *element, t_flags flags);
 void				modif_hh(void *element, t_flags flags);

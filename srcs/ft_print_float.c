@@ -6,67 +6,64 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 14:44:35 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/30 17:37:48 by tigre            ###   ########.fr       */
+/*   Updated: 2018/12/03 15:50:59 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		power(int n, int p)
+void	ft_putfloat(double f, size_t *len, unsigned int p)
 {
-	int		ret;
-
-	ret = 1;
-	while (p--)
-		ret *= n;
-
-	return (ret);
-}
-
-void		ft_putfloat(long double f, unsigned int p)
-{
-	long	n;
+	uintmax_t	n;
 
 	if (f < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_one('-');
 		f = -f;
 	}
-	n = (long)f;
-	if (p == 0 && (f - n >= 0.5))
-		n++;
-	ft_putlnbr(n);
+	n = (uintmax_t)f;
 	f -= n;
-	if (p && f > 0)
+	f >= 0.5 && p == 0 ? n++ : n;
+	ft_putlnbr(n, len);
+	if (p)
 	{
-		ft_putchar('.');
-		f = (f * power(10, p));
-		n = (long)f;
-		f - n >= 0.5 ? n++ : n;
-		ft_putlnbr(n);
+		ft_putchar_one('.');
+		while (p--)
+		{
+			f *= 10;
+			n = (uintmax_t)f;
+			f -= n;
+			f >= 0.5 && p == 0 ? n++ : n;
+			ft_putchar_one(n + '0');
+			(*len)++;
+		}
 	}
 }
 
-void	ft_putfloat(double f, unsigned int p)
+void	ft_putlfloat(long double f, size_t *len, unsigned int p)
 {
-	long	n;
+	uintmax_t	n;
 
 	if (f < 0)
 	{
-		ft_putchar('-');
+		ft_putchar_one('-');
 		f = -f;
 	}
-	n = (long)f;
-	if (p == 0 && (f - n >= 0.5))
-		n++;
-	ft_putlnbr(n);
+	n = (uintmax_t)f;
 	f -= n;
-	if (p && f > 0)
+	f >= 0.5 && p == 0 ? n++ : n;
+	ft_putlnbr(n, len);
+	if (p)
 	{
-		ft_putchar('.');
-		f = (f * power(10, p));
-		n = (long)f;
-		f - n >= 0.5 ? n++ : n;
-		ft_putlnbr(n);
+		ft_putchar_one('.');
+		while (p--)
+		{
+			f *= 10;
+			n = (uintmax_t)f;
+			f -= n;
+			f >= 0.5 && p == 0 ? n++ : n;
+			ft_putchar_one(n + '0');
+			(*len)++;
+		}
 	}
 }
