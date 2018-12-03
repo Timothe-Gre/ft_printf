@@ -6,7 +6,7 @@
 /*   By: tigre <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 15:31:42 by tigre             #+#    #+#             */
-/*   Updated: 2018/11/30 18:07:21 by tigre            ###   ########.fr       */
+/*   Updated: 2018/12/03 21:49:56 by tigre            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	ft_putfloat(long double f, unsigned int p)
 
 int		main()
 {
-	float f  = 92233720368547758095.1238;
+	float f  = 1.123;
 	void *p;
 
 	int i = 31;
@@ -94,8 +94,8 @@ int		main()
 		i == 22 ? printf("  ") : i;
 	}
 	printf("\n\n");
-	printf("%.3f\n", f);
-	ft_putfloat(f, 3);
+	printf("%f\n", f);
+	ft_putfloat(f, 6);
 	return (0);
 }
 
