@@ -6,14 +6,14 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:32:06 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/29 14:36:17 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/12/04 18:12:14 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-static int 	hh_and_ll(char **str, t_flags *flags, int tmp)
+static int		hh_and_ll(char **str, t_flags *flags, int tmp)
 {
 	if (tmp == 0 && *((*str) + 1) && *((*str) + 1) == 'h')
 	{
@@ -31,7 +31,6 @@ static int 	hh_and_ll(char **str, t_flags *flags, int tmp)
 	}
 	return (0);
 }
-
 
 void			ft_check_modifier(t_flags *flags, char **str)
 {

@@ -6,17 +6,17 @@
 /*   By: ghtouman <ghtouman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 14:31:38 by ghtouman          #+#    #+#             */
-/*   Updated: 2018/11/29 21:10:44 by ghtouman         ###   ########.fr       */
+/*   Updated: 2018/12/04 18:13:27 by ghtouman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_flag.h"
 
-static int 	check_float(t_flags flags, va_list ap)
+static int		check_float(t_flags flags, va_list ap)
 {
-	double f_d;
-	long double f_ld;
+	double		f_d;
+	long double	f_ld;
 
 	f_d = 0;
 	f_ld = 0;
@@ -37,9 +37,9 @@ static int 	check_float(t_flags flags, va_list ap)
 	return (0);
 }
 
-void		ft_control(t_flags flags, va_list ap)
+void			ft_control(t_flags flags, va_list ap)
 {
-	void *element;
+	void		*element;
 
 	element = NULL;
 	if (flags.check_flags & 0x01 && flags.index_s < 14)
